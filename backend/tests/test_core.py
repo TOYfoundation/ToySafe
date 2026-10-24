@@ -183,3 +183,40 @@ def test_report_escapes_tool_output():
 def test_report_markdown_has_score_and_top():
     md = ReportGenerator([finding(Severity.CRITICAL)], [asset()]).to_markdown()
     assert "Schildstärke" in md and "Dringendste Funde" in md
+
+
+def test_finished_scans_survive_restart(tmp_path: Path):
+    from toysafe.core.jobs import JobManager
+    from toysafe.core.plugin_base import ScanPhase
+    from toysafe.core.registry import PluginRegistry
+    from toysafe.core.updater import KEVCatalog
+    from toysafe.core.models import Asset, AssetType
+
+    reg = PluginRegistry(kev_catalog=KEVCatalog(cache_path=tmp_path / "kev.json"))
+    reg.register(FakePlugin("fake", ScanPhase.DISCOVERY))
+    store = tmp_path / "scans"
+    first = JobManager(reg, store_dir=store)
+    job = first.start([Asset("r", "Router", AssetType.NETWORK_DEVICE, "192.168.1.1")], operator="Anna", background=False)
+    saved = store / f"{job.id}.json"
+    assert saved.exists() and (saved.stat().st_mode & 0o777) == 0o600
+
+    second = JobManager(reg, store_dir=store)  # simulates a restart
+    again = second.get(job.id)
+    assert again is not None and again.status == "done"
+    assert again.findings[0].title == job.findings[0].title
+    assert again.findings[0].severity == job.findings[0].severity and again.score == job.score
+    (store / "kaputt.json").write_text("{nicht json", encoding="utf-8")
+    assert JobManager(reg, store_dir=store).get(job.id) is not None  # broken files are skipped
+
+
+def test_wait_for_change_wakes_on_progress(tmp_path: Path):
+    from toysafe.core.jobs import JobManager
+    from toysafe.core.registry import PluginRegistry
+    from toysafe.core.updater import KEVCatalog
+    from toysafe.core.models import Asset, AssetType
+
+    reg = PluginRegistry(kev_catalog=KEVCatalog(cache_path=tmp_path / "kev.json"))
+    mgr = JobManager(reg)
+    job = mgr.start([Asset("r", "Router", AssetType.NETWORK_DEVICE, "192.168.1.1")], operator="Anna", background=False)
+    assert mgr.wait_for_change(job.id, since_version=0, timeout=0.1).status == "done"
+    assert mgr.wait_for_change("fehlt", since_version=0, timeout=0.1) is None

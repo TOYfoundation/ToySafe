@@ -3168,3 +3168,29 @@ li.right {
 }
 .pb-head.urg-critical { border-top-color: var(--sev-critical); }
 .pb-head.urg-high { border-top-color: var(--sev-high); }
+.file-btn {
+  position: relative;
+  overflow: hidden;
+}
+.file-btn input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.file-btn:focus-within {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+.form-grid {
+  align-items: start;
+}
+.asset-row {
+  grid-template-columns: 1.1fr 1.5fr 1.5fr 0.6fr auto auto;
+}
+@media (max-width: 1100px) {
+  .asset-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .asset-row { grid-template-columns: minmax(0, 1fr); }
+}

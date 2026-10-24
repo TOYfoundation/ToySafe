@@ -1,6 +1,6 @@
 # ToySafe – Konzept
 
-Stand 24.10.2026 · Teil des ToyVerse (ToyChain, TOY, TOYPAY, ToyScan, ToyCash, TOYQUEST, ToyPost) · Lizenz MIT
+Stand 24.10.2026, Version 0.8.0 · Teil des ToyVerse (ToyChain, TOY, TOYPAY, ToyScan, ToyCash, TOYQUEST, ToyPost) · Lizenz MIT
 
 ToySafe ist das Sicherheits-Cockpit des ToyVerse. Es schützt die Menschen, die das ToyVerse nutzen und betreiben, und macht sie fähig, sich selbst, ihre Geräte und Netze und andere zu schützen. Dieselben Inhalte gibt es als spielbares Level 7 „Die Sternenwacht“ in TOYQUEST (`02-level7-sternenwacht.md`).
 
@@ -68,6 +68,23 @@ Zusätzlich zu den Modulen der Pentester-App (nmap, OpenVAS, Nuclei, Lynis, uner
 11. **Level 7 im Cockpit spielbar,** mit 13 Aufgaben-Typen und einem automatischen Durchspiel-Test.
 12. **Auslieferung:** Dockerfile und systemd-Dienst in `deploy/`, die Engine liefert das Cockpit selbst aus.
 
+### 5.1 Update 0.8.0: Abgleich mit der Pentester-App-Dokumentation (Stand 2)
+
+Die zweite Fassung der Pentester-App-Dokumentation nennt fünf offene Schritte. So stehen sie in ToySafe:
+
+| Schritt aus der Dokumentation | Stand in ToySafe |
+|---|---|
+| Scheduler für den Update-Job | war schon da (`core/scheduler.py`, `TOYSAFE_AUTO_UPDATE_HOURS`) |
+| Live-Fortschritt per WebSocket oder Server-Sent Events statt blockierender Antwort | **neu:** `GET /api/scans/{id}/events` sendet jede Änderung sofort. Das Cockpit liest den Strom mit `fetch`, damit der Zugangsschlüssel als Header mitgeht, und fragt nur noch nach, wenn ein Proxy den Strom blockiert. Vorher fragte es jede Sekunde. |
+| Verpacken für Desktop und Handy (Tauri, Capacitor) | **neu als erster Schritt:** Das Cockpit ist installierbar (Web-App-Manifest, Symbole, Service Worker), startet offline und speichert nie Daten der Engine zwischen. Tauri und Capacitor bleiben offen. |
+| Scope-Bestätigung beim Start | war schon da (Startfreigabe mit Protokoll) |
+| PDF-Export | war schon da (WeasyPrint) |
+
+Zusätzlich, weil es im täglichen Gebrauch fehlte:
+
+- **Scan-Verlauf übersteht einen Neustart:** Fertige Scans liegen als JSON in `backend/data/scans/` (Rechte 600, abschaltbar mit `TOYSAFE_SCAN_DIR=""`). Vorher war das Logbuch nach jedem Neustart leer.
+- **Ziel-Inventar:** Das Cockpit merkt sich Ziele und erlaubten Bereich und kann sie als `assets.json` laden und speichern. Das Format ist dasselbe wie für die Kommandozeile (`python -m toysafe.cli scan assets.json`).
+
 ## 6. Verknüpfung im ToyVerse
 
 ToySafe hält keine Schlüssel und braucht keine neue Transaktionsart. Alle Verbindungen sind lesend oder liefern Inhalte. Die Schnittstellen unten sind **Vorschläge**, bis sie in toycoin entschieden sind.
@@ -103,7 +120,7 @@ ToySafe hält keine Schlüssel und braucht keine neue Transaktionsart. Alle Verb
 - **Übungsabende (Tabletop)** für Betreiber: ein Notfall-Playbook gemeinsam durchspielen, mit Stoppuhr.
 - **Passkey-Assistent** mit Anleitungen je Dienst.
 - **Datenleck-Prüfung** nur mit k-Anonymität und ausdrücklicher Zustimmung (dritter Dienst, daher nicht standardmäßig).
-- **Apps** für Desktop und Handy mit derselben Oberfläche (Tauri und Capacitor).
+- **Apps** für Desktop und Handy mit derselben Oberfläche (Tauri und Capacitor). Die installierbare Web-App ist der erste Schritt dahin.
 - **45 Sprachen** nach `i18n/sprachen.tsv` aus toycoin. Die Oberfläche ist schon über Schlüssel gebaut (Deutsch und Englisch), die Inhalte sind noch deutsch.
 
 ## 9. Offene Fragen

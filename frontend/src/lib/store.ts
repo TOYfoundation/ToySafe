@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from "react";
+import type { Asset } from "./types";
 
 /**
  * Tiny persisted store. Everything stays on this device (localStorage).
@@ -31,6 +32,8 @@ export interface State {
   knownDevices: Record<string, boolean>;
   resolved: Record<string, boolean>; // findings the user marked as fixed (until the next scan)
   bookmarks: string[];
+  targets: Asset[]; // the user's own scan targets (inventory), reused for every scan
+  networks: string; // allowed scope, e.g. "192.168.178.0/24, gang.example"
   game: GameState;
   lastJobId: string | null;
 }
@@ -53,6 +56,8 @@ const initial: State = {
   knownDevices: {},
   resolved: {},
   bookmarks: [],
+  targets: [],
+  networks: "",
   game: { playerClass: null, completed: {}, dukaten: 0, seals: [], realWorld: [] },
   lastJobId: null,
 };

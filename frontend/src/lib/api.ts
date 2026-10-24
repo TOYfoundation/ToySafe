@@ -17,10 +17,13 @@ function base() {
   return getState().settings.apiBase.replace(/\/+$/, "");
 }
 
-async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const headers: Record<string, string> = { "Content-Type": "application/json" };
+function authHeaders(): Record<string, string> {
   const token = getState().settings.apiToken;
-  if (token) headers.Authorization = `Bearer ${token}`;
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
+async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const headers: Record<string, string> = { "Content-Type": "application/json", ...authHeaders() };
   const res = await fetch(base() + path, { ...init, headers: { ...headers, ...(init.headers as object) } });
   if (!res.ok) {
     let message = res.statusText;
@@ -97,3 +100,35 @@ export const api = {
       body: JSON.stringify({ domain }),
     }),
 };
+
+/**
+ * Reads the engine's live progress stream (Server-Sent Events) with fetch, so the access token
+ * can travel as a header (EventSource cannot send headers). Resolves with the final summary.
+ * Rejects if the stream breaks; the caller then falls back to polling.
+ */
+export async function streamScan(id: string, onProgress: (job: ScanJob) => void, signal: AbortSignal): Promise<ScanJob> {
+  const res = await fetch(`${base()}/api/scans/${encodeURIComponent(id)}/events`, {
+    headers: { Accept: "text/event-stream", ...authHeaders() },
+    signal,
+  });
+  if (!res.ok || !res.body) throw new ApiError(res.statusText, res.status);
+  const reader = res.body.pipeThrough(new TextDecoderStream()).getReader();
+  let buffer = "";
+  for (;;) {
+    const { value, done } = await reader.read();
+    if (done) throw new ApiError("stream ended", 0);
+    buffer += value;
+    let cut: number;
+    while ((cut = buffer.indexOf("\n\n")) >= 0) {
+      const block = buffer.slice(0, cut);
+      buffer = buffer.slice(cut + 2);
+      const event = /^event: (.*)$/m.exec(block)?.[1];
+      const data = /^data: (.*)$/m.exec(block)?.[1];
+      if (!event || !data) continue; // heartbeat comment
+      const job = JSON.parse(data) as ScanJob;
+      if (event === "done") return job;
+      if (event === "progress") onProgress(job);
+      if (event === "gone") throw new ApiError("scan gone", 404);
+    }
+  }
+}

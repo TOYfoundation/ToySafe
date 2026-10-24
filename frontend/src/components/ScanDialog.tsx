@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useT } from "../i18n";
 import { api, ApiError } from "../lib/api";
 import { useEngine } from "../lib/engine";
-import { updateSettings, useStore } from "../lib/store";
+import { exportAssets, parseAssets } from "../lib/assets";
+import { isFramed } from "../lib/router";
+import { getState, setState, updateSettings, useStore } from "../lib/store";
 import { ASSET_TYPES, type Asset, type AssetType } from "../lib/types";
 import { Icon } from "./Icon";
 import { Modal } from "./ui";
@@ -14,7 +16,7 @@ const FALLBACK_STATEMENT = {
 };
 
 const blank = (i: number): Asset => ({
-  id: `a${i}`,
+  id: `a${Date.now().toString(36)}${i}`,
   name: "",
   asset_type: "network_segment",
   ip_address: "",
@@ -35,10 +37,14 @@ export function ScanDialog({ onClose }: { onClose: () => void }) {
   const operatorSaved = useStore((s) => s.settings.operator);
   const [statement, setStatement] = useState(FALLBACK_STATEMENT);
   const [operator, setOperator] = useState(operatorSaved);
-  const [networks, setNetworks] = useState("192.168.178.0/24");
+  const [networks, setNetworks] = useState(() => getState().networks || "192.168.178.0/24");
   const [allowPublic, setAllowPublic] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
-  const [assets, setAssets] = useState<Asset[]>([{ ...blank(1), name: "Heimnetz", ip_address: "192.168.178.0/24" }]);
+  // The inventory is remembered in this browser, so the next scan starts with the same targets.
+  const [assets, setAssets] = useState<Asset[]>(() =>
+    getState().targets.length ? getState().targets : [{ ...blank(1), name: "Heimnetz", ip_address: "192.168.178.0/24" }],
+  );
+  const [importError, setImportError] = useState("");
   const [problems, setProblems] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
 
@@ -64,6 +70,7 @@ export function ScanDialog({ onClose }: { onClose: () => void }) {
     setBusy(true);
     try {
       updateSettings({ operator: operator.trim() });
+      setState((st) => ({ ...st, targets: clean, networks }));
       await startScan(
         {
           operator: operator.trim(),
@@ -156,9 +163,48 @@ export function ScanDialog({ onClose }: { onClose: () => void }) {
                   </div>
                 );
               })}
-              <button type="button" className="btn btn-ghost btn-sm" onClick={() => setAssets((xs) => [...xs, blank(xs.length + 1)])}>
-                {t("scan.addAsset")}
-              </button>
+              <div className="btn-row">
+                <button type="button" className="btn btn-ghost btn-sm" onClick={() => setAssets((xs) => [...xs, blank(xs.length + 1)])}>
+                  {t("scan.addAsset")}
+                </button>
+                <label className="btn btn-ghost btn-sm file-btn">
+                  <Icon name="file" size={16} />
+                  {t("assets.import")}
+                  <input
+                    type="file"
+                    accept="application/json,.json"
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      e.target.value = "";
+                      if (!file) return;
+                      try {
+                        setAssets(parseAssets(await file.text()));
+                        setImportError("");
+                      } catch (err) {
+                        setImportError(t((err as Error).message));
+                      }
+                    }}
+                  />
+                </label>
+                {!isFramed && (
+                  <button
+                    type="button"
+                    className="btn btn-ghost btn-sm"
+                    onClick={() => {
+                      const url = URL.createObjectURL(new Blob([exportAssets(assets.filter((a) => a.name.trim()))], { type: "application/json" }));
+                      const a = document.createElement("a");
+                      a.href = url;
+                      a.download = "assets.json";
+                      a.click();
+                      setTimeout(() => URL.revokeObjectURL(url), 1000);
+                    }}
+                  >
+                    {t("assets.export")}
+                  </button>
+                )}
+              </div>
+              <small className="muted">{t("assets.help")}</small>
+              {importError && <p className="problems" role="alert">{importError}</p>}
             </fieldset>
 
             <label className="check-inline">

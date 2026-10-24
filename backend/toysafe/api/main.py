@@ -8,7 +8,9 @@ Sicherheit der API selbst:
 """
 from __future__ import annotations
 
+import asyncio
 import hmac
+import json
 import logging
 import os
 from contextlib import asynccontextmanager
@@ -18,7 +20,7 @@ from urllib.parse import urlparse
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, PlainTextResponse, Response
+from fastapi.responses import HTMLResponse, PlainTextResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -37,7 +39,9 @@ from toysafe.plugins.http_headers import check_headers
 logger = logging.getLogger("toysafe.api")
 
 registry = build_default_registry()
-jobs = JobManager(registry)
+# Fertige Scans überstehen einen Neustart (Logbuch). TOYSAFE_SCAN_DIR="" schaltet das Speichern ab.
+_scan_dir = os.getenv("TOYSAFE_SCAN_DIR", str(scope_mod.DATA_DIR / "scans"))
+jobs = JobManager(registry, store_dir=Path(_scan_dir) if _scan_dir else None)
 scheduler = UpdateScheduler.from_env()
 
 
@@ -181,6 +185,46 @@ def get_scan(job_id: str):
     data["findings"] = job.findings
     data["assets"] = job.assets
     return data
+
+
+SSE_HEARTBEAT_SECONDS = 15.0
+
+
+def _sse(event: str, data: dict) -> str:
+    return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False, default=str)}\n\n"
+
+
+@app.get("/api/scans/{job_id}/events", dependencies=[Depends(require_auth)])
+async def scan_events(job_id: str, request: Request):
+    """Live-Fortschritt als Server-Sent Events: ein `progress` je Änderung, zum Schluss `done`.
+
+    Das Cockpit liest den Strom mit fetch (damit der Zugangsschlüssel als Header mitgeht)
+    und fällt auf Abfragen zurück, wenn ein Proxy Ströme blockiert.
+    """
+    job = jobs.get(job_id)
+    if not job:
+        raise HTTPException(404, "Scan nicht gefunden")
+
+    async def stream():
+        version = -1
+        while True:
+            current = await asyncio.to_thread(jobs.wait_for_change, job_id, version, SSE_HEARTBEAT_SECONDS)
+            if current is None:
+                yield _sse("gone", {"id": job_id})
+                return
+            if current.version == version and current.status not in ("done", "failed"):
+                yield ": still running\n\n"  # Kommentar hält die Verbindung offen
+            else:
+                version = current.version
+                if current.status in ("done", "failed"):
+                    yield _sse("done", current.summary())
+                    return
+                yield _sse("progress", current.summary())
+            if await request.is_disconnected():
+                return
+
+    return StreamingResponse(stream(), media_type="text/event-stream",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
 @app.get("/api/scans/{job_id}/report", dependencies=[Depends(require_auth)])

@@ -1,6 +1,6 @@
 # ToySafe – Stand
 
-Stand 24.10.2026 · Version 0.7.0
+Stand 24.10.2026 · Version 0.8.0
 
 ## Fertig
 
@@ -27,14 +27,23 @@ Stand 24.10.2026 · Version 0.7.0
 
 **Auslieferung:** Dockerfile und systemd-Dienst (`deploy/`).
 
+**Neu in 0.8.0**
+
+- Live-Fortschritt per Server-Sent Events (`/api/scans/{id}/events`), Rückfall auf Abfragen.
+- Fertige Scans werden gespeichert und nach einem Neustart wieder geladen.
+- Ziel-Inventar im Cockpit, Import und Export als `assets.json` (wie die Kommandozeile).
+- Installierbare Web-App: Manifest, Symbole, Service Worker, Start ohne Netz. Engine-Daten werden nie zwischengespeichert.
+
 ## Messwerte
 
 | Prüfung | Ergebnis |
 |---|---|
-| `pytest` (Engine und Inhalte) | 48 bestanden |
-| `npm run check` (TypeScript, Übersetzungen) | ohne Fehler, 458 Schlüssel in de und en |
-| `npm run build` | JavaScript 471 KB (153 KB gzip) |
+| `pytest` (Engine und Inhalte) | 51 bestanden |
+| `npm run check` (TypeScript, Übersetzungen) | ohne Fehler, 464 Schlüssel in de und en |
+| `npm run build` | JavaScript 475 KB (154 KB gzip) |
 | `npm run e2e` (alle Missionen im Browser) | 21 von 21 mit 3 Sternen |
+| Live-Test gegen laufende Engine | Scan über das Cockpit: ein Ereignis-Strom statt Abfragen, Ergebnis nach Neustart noch im Logbuch, Ziele beim nächsten Scan vorausgefüllt |
+| Installierbarkeit | Service Worker aktiv, Manifest gültig, Cockpit startet offline, 0 API-Antworten im Zwischenspeicher |
 | Browser-Check 1440 px, 1280 px, 390 px, hell und dunkel | kein waagrechtes Scrollen, keine Skriptfehler (nur der erwartete Hinweis, dass im Demo-Modus keine Engine antwortet) |
 
 ## Offen
@@ -44,4 +53,4 @@ Stand 24.10.2026 · Version 0.7.0
 - Ports und Pfade des ToyChain-Knotens (`backend/config/toynode.yaml`), sobald M6/M7 fertig sind. Prüfung des Speicherbudgets (256 MB) ergänzen.
 - Übersetzung der Inhalte (Missionen, Playbooks, Checklisten) in die 45 Sprachen des ToyVerse.
 - Einbau von Level 7 in TOYQUEST 3D (Godot) aus `missions.json`.
-- Apps für Desktop und Handy (Tauri, Capacitor).
+- Apps für Desktop und Handy (Tauri, Capacitor). Bis dahin lässt sich das Cockpit als Web-App installieren.

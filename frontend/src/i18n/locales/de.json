@@ -456,5 +456,11 @@
   "game.compareWrong": "{n} Paare sind falsch eingeschätzt.",
   "finding.resolve": "Als behoben markieren",
   "shields.resolved": "{n} Funde als behoben markiert. Der nächste Scan prüft, ob sie wirklich weg sind.",
-  "shields.reopen": "Wieder anzeigen"
+  "shields.reopen": "Wieder anzeigen",
+  "assets.import": "assets.json laden",
+  "assets.export": "Als assets.json speichern",
+  "assets.help": "Deine Ziele werden in diesem Browser gemerkt. Die Datei passt auch für die Kommandozeile (python -m toysafe.cli scan assets.json).",
+  "assets.err.json": "Die Datei ist kein gültiges JSON.",
+  "assets.err.list": "Erwartet wird eine Liste mit 1 bis 256 Zielen.",
+  "assets.err.item": "Jedes Ziel braucht eine eindeutige id, einen Namen und eine gültige asset_type."
 }

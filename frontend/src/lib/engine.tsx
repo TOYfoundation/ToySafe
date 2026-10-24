@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { api, type Health, type ScopeIn } from "./api";
+import { api, streamScan, type Health, type ScopeIn } from "./api";
 import { demoAssets, demoJob, demoModules, demoScanScript } from "./demo";
 import { shieldStrength } from "./score";
 import { setState, useStore } from "./store";
@@ -70,9 +70,19 @@ export function EngineProvider({ children }: { children: ReactNode }) {
       setJob(demoJob());
       return;
     }
-    if (lastJobId) api.scan(lastJobId).then(setJob).catch(() => setJob(null));
+    if (lastJobId)
+      api
+        .scan(lastJobId)
+        .then((j) => {
+          setJob(j);
+          if (j.status === "running" || j.status === "queued") followRef.current(j.id);
+        })
+        .catch(() => setJob(null));
     else setJob(null);
   }, [live, checking, lastJobId]);
+
+  const stream = useRef<AbortController | null>(null);
+  const followRef = useRef<(id: string) => void>(() => undefined);
 
   const poll = useCallback((id: string) => {
     window.clearTimeout(timer.current);
@@ -88,16 +98,36 @@ export function EngineProvider({ children }: { children: ReactNode }) {
     step();
   }, []);
 
-  useEffect(() => () => window.clearTimeout(timer.current), []);
+  // Live progress: follow the engine's event stream, keep findings/assets from the last full load,
+  // fetch the full result once at the end. If the stream is blocked, fall back to polling.
+  const follow = useCallback(
+    (id: string) => {
+      stream.current?.abort();
+      window.clearTimeout(timer.current);
+      const ctrl = new AbortController();
+      stream.current = ctrl;
+      streamScan(id, (summary) => setJob((prev) => ({ ...prev, ...summary })), ctrl.signal)
+        .then(async () => {
+          if (!ctrl.signal.aborted) setJob(await api.scan(id));
+        })
+        .catch(() => {
+          if (!ctrl.signal.aborted) poll(id);
+        });
+    },
+    [poll],
+  );
+  followRef.current = follow;
+
+  useEffect(() => () => (window.clearTimeout(timer.current), stream.current?.abort()), []);
 
   const startScan = useCallback(
     async (scope: ScopeIn, assets: Asset[]) => {
       const j = await api.startScan(scope, assets);
       setState((s) => ({ ...s, lastJobId: j.id }));
       setJob(j);
-      poll(j.id);
+      follow(j.id);
     },
-    [poll],
+    [follow],
   );
 
   const startDemoScan = useCallback(() => {
@@ -137,9 +167,9 @@ export function EngineProvider({ children }: { children: ReactNode }) {
       setState((s) => ({ ...s, lastJobId: id }));
       const j = await api.scan(id);
       setJob(j);
-      if (j.status === "running" || j.status === "queued") poll(id);
+      if (j.status === "running" || j.status === "queued") follow(id);
     },
-    [poll],
+    [follow],
   );
 
   // Findings the user marked as fixed leave the list and the score is recalculated (same formula as the engine).

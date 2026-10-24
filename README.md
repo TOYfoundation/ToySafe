@@ -65,7 +65,11 @@ python -m toysafe.cli scan assets.example.json --operator "Anna" --network 192.1
 python -m toysafe.cli update
 ```
 
-**Docker oder systemd:** siehe `deploy/`. Für Netz-Scans aus Docker `--network host` verwenden.
+**Als App installieren:** Wird das Cockpit über `https` oder `localhost` geöffnet, bietet der Browser „Installieren“ an (Desktop und Handy). Es startet dann auch ohne Netz, zeigt Ergebnisse aber nur, wenn die Engine erreichbar ist.
+
+**Ziele merken:** Das Cockpit merkt sich deine Ziele und kann sie als `assets.json` laden und speichern, im selben Format wie die Kommandozeile.
+
+**Docker oder systemd:** siehe `deploy/`. Für Netz-Scans aus Docker `--network host` verwenden. Fertige Scans liegen in `backend/data/scans/` (abschaltbar mit `TOYSAFE_SCAN_DIR=""`).
 
 ## Aufbau
 

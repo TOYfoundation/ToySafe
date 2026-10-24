@@ -1,0 +1,21 @@
+{
+  "name": "ToySafe Cockpit",
+  "short_name": "ToySafe",
+  "description": "Das Sicherheits-Cockpit für das ToyVerse",
+  "lang": "de",
+  "start_url": "./#/bridge",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a1626",
+  "theme_color": "#0a1626",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Notfall", "url": "./#/emergency", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] },
+    { "name": "Nachricht prüfen", "url": "./#/comms", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] }
+  ]
+}

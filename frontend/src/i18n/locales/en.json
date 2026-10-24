@@ -456,5 +456,11 @@
   "game.compareWrong": "{n} pairs are judged wrong.",
   "finding.resolve": "Mark as fixed",
   "shields.resolved": "{n} findings marked as fixed. The next scan checks whether they are really gone.",
-  "shields.reopen": "Show again"
+  "shields.reopen": "Show again",
+  "assets.import": "Load assets.json",
+  "assets.export": "Save as assets.json",
+  "assets.help": "Your targets are remembered in this browser. The file also works with the command line (python -m toysafe.cli scan assets.json).",
+  "assets.err.json": "The file is not valid JSON.",
+  "assets.err.list": "Expected a list of 1 to 256 targets.",
+  "assets.err.item": "Each target needs a unique id, a name and a valid asset_type."
 }

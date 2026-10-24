@@ -87,3 +87,19 @@ def test_content_endpoints():
     assert lvl["level"] == 7 and len(lvl["missions"]) >= 10
     assert client.get("/api/content/../../etc").status_code == 404
     assert client.get("/api/content/geheim").status_code == 404
+
+
+def test_live_events_stream_until_done(monkeypatch, tmp_path):
+    monkeypatch.setattr(scope_mod, "SCOPE_LOG_PATH", tmp_path / "log.jsonl")
+    job_id = client.post("/api/scans", json=BODY).json()["id"]
+    events = []
+    with client.stream("GET", f"/api/scans/{job_id}/events") as r:
+        assert r.status_code == 200 and r.headers["content-type"].startswith("text/event-stream")
+        for line in r.iter_lines():
+            if line.startswith("event: "):
+                events.append(line[7:])
+            if events and events[-1] == "done" and line.startswith("data: "):
+                final = __import__("json").loads(line[6:])
+                break
+    assert events[-1] == "done" and final["status"] == "done" and final["finding_count"] == 1
+    assert client.get("/api/scans/unbekannt/events").status_code == 404
