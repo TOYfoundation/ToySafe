@@ -1,0 +1,18 @@
+# Dependencies and builds
+node_modules/
+frontend/dist/
+frontend/dist-single/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Local runtime data: scope log, KEV cache, reports. Never commit (may contain device details).
+backend/data/
+logbuch/
+*.report.html
+
+# Secrets
+.env
+*.key
+*.pem

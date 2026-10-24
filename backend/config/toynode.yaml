@@ -1,0 +1,20 @@
+# Einstellungen für die Knoten-Wache (toynode_audit.py).
+# Der ToyChain-Knoten ist noch im Bau (Meilensteine M6/M7 in Safehaigit/toycoin).
+# Sobald Ports und Pfade feststehen, hier anpassen. Werte unten sind Platzhalter.
+
+process_names:
+  - toy-node
+  - toychain
+
+# Ports der Steuer-Schnittstelle (JSON-RPC). Sie darf nur an 127.0.0.1 lauschen.
+rpc_ports: [8545, 8546]
+
+# Validator-Schlüssel (BLS): müssen Rechte 600 haben.
+validator_key_files:
+  - ~/.toychain/validator/bls.key
+
+# Dateien, die auf einen Geld-Schlüssel (Wallet) hinweisen.
+# Der Geld-Schlüssel gehört NICHT auf das Validator-Gerät.
+money_key_indicators:
+  - ~/.toychain/wallet/keystore.json
+  - ~/.toypay/wallet.json

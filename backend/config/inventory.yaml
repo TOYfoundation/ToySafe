@@ -1,0 +1,10 @@
+# Bekannte Geräte im eigenen Netz. Das Radar (network_inventory.py) meldet
+# jedes Gerät, das hier und in der Asset-Liste fehlt, als "Unbekanntes Gerät".
+# MAC-Adressen sind zuverlässiger als IPs (die können wechseln).
+
+devices:
+  - name: Hauptrouter
+    ip: 192.168.1.1
+    mac: "aa:bb:cc:00:00:01"
+  # - name: Spielekonsole Wohnzimmer
+  #   mac: "aa:bb:cc:00:00:02"

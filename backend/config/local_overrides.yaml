@@ -1,0 +1,24 @@
+# Lokale Anpassungen zur Basis-Signaturliste (software_signatures.yaml).
+# Diese Datei wird vom automatischen Update-Job NIE angefasst - hier
+# gehören Ausnahmen und Ergänzungen hin, die spezifisch für dieses
+# Deployment gelten.
+
+allowlist:
+  - name: "ToyCoin Miner"
+    matches: ["toycoinminer", "toypay-miner"]
+    reason: >
+      Offizieller ToyCoin (TOY)-Miner auf der ToyChain, genutzt über die
+      TOYPAY-Wallet. Einziger auf diesem Gerät zugelassener Miner.
+
+# Optional: zusätzliche Muster, die zu einer bestehenden Kategorie aus
+# software_signatures.yaml hinzugefügt werden (Kategorie-Name als Key).
+# additional_patterns:
+#   cryptominers: ["internes-tool-das-wie-ein-miner-aussieht"]
+
+# Eigene WLANs für den WLAN-Wächter (wifi_guard.py). Ein Netz mit gleichem
+# Namen, aber unbekannter BSSID oder schwächerer Verschlüsselung wird als
+# möglicher "böser Zwilling" gemeldet.
+known_wifi_networks: []
+#  - ssid: "MeinZuhause"
+#    security: "WPA3"
+#    bssids: ["aa:bb:cc:dd:ee:01", "aa:bb:cc:dd:ee:02"]

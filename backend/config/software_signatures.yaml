@@ -1,0 +1,68 @@
+# Basis-Signaturliste für unerwünschte Software.
+# Wird vom Update-Job (app/core/updater.py) automatisch aktualisiert.
+# Lokale Anpassungen (z.B. die ToyCoin-Allowlist) gehören NICHT hierher,
+# sondern in config/local_overrides.yaml - diese Datei wird beim Update
+# überschrieben.
+
+cryptominers:
+  severity: critical
+  kali_context: "Cryptojacking-Erkennung"
+  patterns:
+    - xmrig
+    - nicehash
+    - minergate
+    - cpuminer
+    - ethminer
+    - t-rex
+    - phoenixminer
+    - lolminer
+    - claymore
+    - nbminer
+    - teamredminer
+  recommendation: >
+    Nicht autorisierten Miner-Prozess sofort beenden, Herkunft prüfen
+    (häufig über Drive-by-Downloads oder kompromittierte Software verteilt)
+    und das System auf weitere Kompromittierung untersuchen.
+
+remote_access_tools:
+  severity: high
+  kali_context: "Erkennung missbrauchter RMM-/Fernzugriffstools"
+  patterns:
+    - screenconnect
+    - connectwise
+    - anydesk
+    - teamviewer
+    - splashtop
+    - remoteutilities
+  recommendation: >
+    Prüfen, ob dieses Tool bewusst installiert wurde und benötigt wird.
+    RMM-/Fernzugriffstools werden bei Angriffen häufig für dauerhaften
+    Zugriff missbraucht, besonders wenn sie nicht von der eigenen
+    IT-Administration stammen.
+
+cryptominer_network_indicators:
+  severity: medium
+  kali_context: "Netzwerkbasierte Cryptojacking-Erkennung (Stratum-Protokoll)"
+  ports:
+    - 3333
+    - 4444
+    - 5555
+    - 7777
+    - 8080
+    - 9999
+    - 14444
+    - 14433
+    - 20032
+    - 45560
+    - 45700
+  known_pool_hostnames:
+    - supportxmr.com
+    - minexmr.com
+    - nanopool.org
+    - f2pool.com
+    - pool.minergate.com
+  recommendation: >
+    Ausgehende Verbindung zu einem für Mining-Pools typischen Port/Hostnamen
+    erkannt. Schwächerer Indikator als ein direkter Prozess-Treffer -
+    haltenden Prozess prüfen und mit der Cryptominer-Signaturliste
+    abgleichen, bevor Maßnahmen ergriffen werden.

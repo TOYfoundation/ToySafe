@@ -1,0 +1,8 @@
+[
+  {"id": "heimnetz", "name": "Heimnetz", "asset_type": "network_segment", "ip_address": "192.168.1.0/24", "criticality": 4},
+  {"id": "router-01", "name": "Hauptrouter", "asset_type": "network_device", "ip_address": "192.168.1.1", "mac_address": "aa:bb:cc:00:00:01", "criticality": 5, "externally_reachable": true},
+  {"id": "dieser-pc", "name": "Dieser Rechner", "asset_type": "host", "ip_address": "192.168.1.20", "criticality": 4, "is_local": true},
+  {"id": "toynode", "name": "ToyChain-Knoten (Raspberry Pi)", "asset_type": "toychain_node", "ip_address": "192.168.1.30", "criticality": 5},
+  {"id": "kamera-flur", "name": "Kamera Flur", "asset_type": "iot_device", "ip_address": "192.168.1.40", "criticality": 3},
+  {"id": "repo-toysafe", "name": "Repository ToySafe", "asset_type": "code_repository", "path": "..", "criticality": 3}
+]

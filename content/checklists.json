@@ -1,0 +1,353 @@
+{
+ "schema": "toysafe.checklists/1",
+ "levels": {
+  "basis": "Basis",
+  "plus": "Plus",
+  "profi": "Profi"
+ },
+ "checklists": [
+  {
+   "id": "router",
+   "station": "shields",
+   "title": "Router und Heimnetz",
+   "items": [
+    {
+     "id": "r1",
+     "level": "basis",
+     "text": "Router-Passwort (Admin) geändert, nicht mehr das vom Aufkleber",
+     "why": "Standard-Passwörter stehen in öffentlichen Listen."
+    },
+    {
+     "id": "r2",
+     "level": "basis",
+     "text": "Automatische Firmware-Updates eingeschaltet",
+     "why": "Router sind das Tor zum Internet und ein Lieblingsziel."
+    },
+    {
+     "id": "r3",
+     "level": "basis",
+     "text": "WLAN mit WPA3 oder WPA2/WPA3 und langem Passwort",
+     "why": "Offene und WEP-Netze lassen sich mitlesen."
+    },
+    {
+     "id": "r4",
+     "level": "plus",
+     "text": "Gastnetz für Besuch und IoT-Geräte (Kameras, Steckdosen, Spielzeug)",
+     "why": "Ein befallenes Gerät erreicht dann nicht deine Rechner."
+    },
+    {
+     "id": "r5",
+     "level": "plus",
+     "text": "UPnP ausgeschaltet, Portfreigaben geprüft",
+     "why": "Geräte können sonst selbst Türen nach außen öffnen."
+    },
+    {
+     "id": "r6",
+     "level": "plus",
+     "text": "Fernzugriff auf den Router aus dem Internet aus",
+     "why": "Wer ihn nicht braucht, bietet keine Angriffsfläche."
+    },
+    {
+     "id": "r7",
+     "level": "profi",
+     "text": "Geräte-Inventar in ToySafe gepflegt",
+     "why": "Nur so fallen Unbekannte sofort auf."
+    }
+   ]
+  },
+  {
+   "id": "devices",
+   "station": "shields",
+   "title": "Handy, PC und Konsole",
+   "items": [
+    {
+     "id": "d1",
+     "level": "basis",
+     "text": "Automatische Updates für System und Apps",
+     "why": "Die meisten Angriffe nutzen bekannte, längst reparierte Lücken."
+    },
+    {
+     "id": "d2",
+     "level": "basis",
+     "text": "Bildschirmsperre mit PIN, Muster oder Biometrie",
+     "why": "Ein verlorenes Gerät verrät sonst alles."
+    },
+    {
+     "id": "d3",
+     "level": "basis",
+     "text": "Apps nur aus offiziellen Stores, keine gecrackte Software",
+     "why": "Cracks und Mods sind der häufigste Weg für Miner und Datendiebe."
+    },
+    {
+     "id": "d4",
+     "level": "plus",
+     "text": "Festplatte verschlüsselt (BitLocker, FileVault, LUKS, Android/iOS Standard)",
+     "why": "Schützt Daten bei Diebstahl."
+    },
+    {
+     "id": "d5",
+     "level": "plus",
+     "text": "Alltag mit normalem Benutzerkonto, Admin nur bei Bedarf",
+     "why": "Schadsoftware bekommt dann weniger Rechte."
+    },
+    {
+     "id": "d6",
+     "level": "profi",
+     "text": "Lynis- bzw. ToySafe-Härtungsscan monatlich",
+     "why": "Hält die Härtung dauerhaft im Blick."
+    },
+    {
+     "id": "d-backup",
+     "level": "basis",
+     "text": "Wichtige Daten nach 3-2-1 gesichert, eine Kopie offline",
+     "why": "Dann musst du bei Erpressung nichts zahlen."
+    },
+    {
+     "id": "d-restore",
+     "level": "plus",
+     "text": "Wiederherstellung einmal im Vierteljahr getestet",
+     "why": "Ein ungetestetes Backup ist nur eine Hoffnung."
+    }
+   ]
+  },
+  {
+   "id": "identity",
+   "station": "identity",
+   "title": "Konten und Passwörter",
+   "items": [
+    {
+     "id": "i1",
+     "level": "basis",
+     "text": "Zwei-Faktor bzw. Passkey für die E-Mail",
+     "why": "Die E-Mail setzt alle anderen Passwörter zurück."
+    },
+    {
+     "id": "i2",
+     "level": "basis",
+     "text": "Passwort-Manager eingerichtet, kein Passwort doppelt",
+     "why": "Ein Leck öffnet sonst viele Türen."
+    },
+    {
+     "id": "i3",
+     "level": "basis",
+     "text": "Passwörter in ToySafe auf bekannte Lecks geprüft",
+     "why": "Geleakte Passwörter werden automatisch durchprobiert."
+    },
+    {
+     "id": "i4",
+     "level": "plus",
+     "text": "Zwei-Faktor für TOYPAY-Server, Spiel, Social Media, Bank",
+     "why": "Ein gestohlenes Passwort allein reicht dann nicht."
+    },
+    {
+     "id": "i5",
+     "level": "plus",
+     "text": "Backup-Codes offline aufbewahrt",
+     "why": "Damit du selbst nicht ausgesperrt wirst."
+    },
+    {
+     "id": "i6",
+     "level": "profi",
+     "text": "Hardware-Sicherheitsschlüssel für die wichtigsten Konten",
+     "why": "Lässt sich nicht abfischen."
+    }
+   ]
+  },
+  {
+   "id": "wallet",
+   "station": "vault",
+   "title": "TOYPAY-Tresor",
+   "items": [
+    {
+     "id": "w1",
+     "level": "basis",
+     "text": "Phrase offline auf Papier oder Metall, nie als Foto, Mail oder Cloud-Notiz",
+     "why": "Wer die Phrase hat, hat das Geld."
+    },
+    {
+     "id": "w2",
+     "level": "basis",
+     "text": "Ich weiß: Niemand fragt je nach meiner Phrase",
+     "why": "Jede Frage danach ist Betrug."
+    },
+    {
+     "id": "w3",
+     "level": "basis",
+     "text": "Adressen nur aus dem Adressbuch, nie aus der Historie kopieren",
+     "why": "Schützt vor Adress-Fallen."
+    },
+    {
+     "id": "w4",
+     "level": "plus",
+     "text": "Konto-Schutz eingerichtet: Notfall-Schlüssel, Tresor-Verzögerung, Erben-Adresse",
+     "why": "Gibt Zeit und einen zweiten Weg, wenn etwas schiefgeht."
+    },
+    {
+     "id": "w5",
+     "level": "plus",
+     "text": "Phrase in Teile aufgeteilt (SLIP-39, z. B. 3 von 5)",
+     "why": "Ein einzelner Fund reicht dann nicht."
+    },
+    {
+     "id": "w6",
+     "level": "plus",
+     "text": "Probebetrag bei der ersten Zahlung an neue Adressen",
+     "why": "Ein Tippfehler kostet dann fast nichts."
+    },
+    {
+     "id": "w7",
+     "level": "profi",
+     "text": "Hardware-Wallet für größere Beträge",
+     "why": "Der Schlüssel verlässt das Gerät nie."
+    },
+    {
+     "id": "w8",
+     "level": "profi",
+     "text": "Freigaben (Approvals) auf anderen Ketten regelmäßig geprüft und zurückgenommen",
+     "why": "Alte Freigaben sind offene Türen."
+    }
+   ]
+  },
+  {
+   "id": "node",
+   "station": "operator",
+   "title": "ToyChain-Knoten und Validator",
+   "items": [
+    {
+     "id": "n1",
+     "level": "basis",
+     "text": "Knoten läuft unter eigenem Benutzer ohne Admin-Rechte",
+     "why": "Begrenzt den Schaden bei einer Lücke."
+    },
+    {
+     "id": "n2",
+     "level": "basis",
+     "text": "RPC-Schnittstelle nur an 127.0.0.1, nur P2P-Port offen",
+     "why": "Die Steuerung gehört nicht ins Internet."
+    },
+    {
+     "id": "n3",
+     "level": "basis",
+     "text": "Uhrzeit per NTP synchron (Abweichung unter 1 Sekunde)",
+     "why": "ToyScan meldet A4 gelb ab 5 Sekunden Abweichung."
+    },
+    {
+     "id": "n4",
+     "level": "plus",
+     "text": "Validator-Schlüssel (BLS) mit Rechten 600, Geld-Schlüssel auf anderem Gerät",
+     "why": "Vorgabe der TOYPAY-Sicherheitsregeln."
+    },
+    {
+     "id": "n5",
+     "level": "plus",
+     "text": "Mitsignieren nur auf einem Gerät; beim Umzug die Wartezeit der App einhalten",
+     "why": "Verhindert doppeltes Signieren."
+    },
+    {
+     "id": "n6",
+     "level": "plus",
+     "text": "SSH nur mit Schlüssel, Passwort-Login aus",
+     "why": "Passwort-Raten läuft rund um die Uhr gegen jeden Server."
+    },
+    {
+     "id": "n7",
+     "level": "profi",
+     "text": "ToyScan-Warnampel und Knoten-Gesundheit im Cockpit beobachtet",
+     "why": "Probleme früh sehen."
+    }
+   ]
+  },
+  {
+   "id": "webops",
+   "station": "operator",
+   "title": "Betreiber: Webseiten und Dienste",
+   "items": [
+    {
+     "id": "o1",
+     "level": "basis",
+     "text": "HTTPS überall, HSTS gesetzt",
+     "why": "Schützt vor Umleitung auf unverschlüsselte Seiten."
+    },
+    {
+     "id": "o2",
+     "level": "basis",
+     "text": "Sicherheits-Header (CSP, nosniff, Referrer-Policy) gesetzt",
+     "why": "Erschwert XSS und Datenabfluss."
+    },
+    {
+     "id": "o3",
+     "level": "basis",
+     "text": "SPF und DMARC für alle Domains, auch für solche ohne Mailversand",
+     "why": "Erschwert gefälschte Mails im Namen des ToyVerse."
+    },
+    {
+     "id": "o4",
+     "level": "plus",
+     "text": "gitleaks als pre-commit-Hook und in der CI",
+     "why": "Geheimnisse landen gar nicht erst im Repository."
+    },
+    {
+     "id": "o5",
+     "level": "plus",
+     "text": "Abhängigkeiten automatisch geprüft (osv-scanner, cargo-deny, npm audit)",
+     "why": "Lücken in Bibliotheken früh erkennen."
+    },
+    {
+     "id": "o6",
+     "level": "plus",
+     "text": "Container-Images mit trivy geprüft und regelmäßig neu gebaut",
+     "why": "Basis-Images veralten schnell."
+    },
+    {
+     "id": "o7",
+     "level": "profi",
+     "text": "security.txt veröffentlicht und Meldeweg für Lücken beschrieben",
+     "why": "Ehrliche Finder wissen dann, wohin."
+    },
+    {
+     "id": "o8",
+     "level": "profi",
+     "text": "Lookalike-Domains der ToyVerse-Marken beobachtet (z. B. mit dnstwist)",
+     "why": "Fake-Seiten früh entdecken und melden."
+    }
+   ]
+  },
+  {
+   "id": "family",
+   "station": "crew",
+   "title": "Familie, Gang und Community",
+   "items": [
+    {
+     "id": "f1",
+     "level": "basis",
+     "text": "Wir haben ein Codewort für Geld-Anfragen über neue Nummern",
+     "why": "Entlarvt den „Hallo, ich bin's, neues Handy“-Trick."
+    },
+    {
+     "id": "f2",
+     "level": "basis",
+     "text": "Jeder weiß: Fehler melden ist gut, niemand wird ausgelacht",
+     "why": "Wer sich schämt, meldet nichts – und der Schaden wächst."
+    },
+    {
+     "id": "f3",
+     "level": "plus",
+     "text": "Privatsphäre im Spiel geprüft: Wer darf mich anschreiben?",
+     "why": "Weniger Angriffsfläche für Betrug und Belästigung."
+    },
+    {
+     "id": "f4",
+     "level": "plus",
+     "text": "Notfall-Rollen festgelegt (wer macht was, siehe Playbooks)",
+     "why": "Im Ernstfall muss niemand nachdenken."
+    },
+    {
+     "id": "f5",
+     "level": "profi",
+     "text": "Ich habe jemandem durch eine Checkliste geholfen",
+     "why": "Sicherheit wächst, wenn man sie teilt."
+    }
+   ]
+  }
+ ]
+}

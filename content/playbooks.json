@@ -1,0 +1,335 @@
+{
+  "schema": "toysafe.playbooks/1",
+  "phases": [
+    {
+      "id": "detect",
+      "label": "Erkennen"
+    },
+    {
+      "id": "contain",
+      "label": "Eindämmen"
+    },
+    {
+      "id": "eradicate",
+      "label": "Beseitigen"
+    },
+    {
+      "id": "recover",
+      "label": "Wiederherstellen"
+    },
+    {
+      "id": "learn",
+      "label": "Lernen"
+    }
+  ],
+  "playbooks": [
+    {
+      "id": "wallet-compromised",
+      "title": "Phrase verraten oder Wallet geknackt",
+      "audience": "Nutzer",
+      "urgency": "critical",
+      "calm": "Jede Minute zählt, aber Panik hilft nicht. Arbeite die Schritte der Reihe nach ab.",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Prüfe in ToyScan, ob schon Beträge abgeflossen sind. Notiere Uhrzeit und Transaktionen (Screenshots)."
+        },
+        {
+          "phase": "contain",
+          "text": "Neue Wallet mit NEUER Phrase auf einem sauberen Gerät anlegen – nicht auf dem Gerät, das vielleicht befallen ist."
+        },
+        {
+          "phase": "contain",
+          "text": "Restguthaben sofort auf die neue Adresse senden. Wenn eingerichtet: Konto-Schutz nutzen (Notfall-Schlüssel, Selbst-Sperre, Tresor-Verzögerung)."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Gerät auf Schadsoftware prüfen (ToySafe-Scan), im Zweifel neu aufsetzen. Erteilte Freigaben auf anderen Ketten zurücknehmen."
+        },
+        {
+          "phase": "recover",
+          "text": "Alte Phrase nie wieder benutzen. Neue Phrase offline sichern, Adressbuch neu anlegen."
+        },
+        {
+          "phase": "learn",
+          "text": "Wie kam die Phrase heraus? Foto, Cloud, Fake-Seite, „Support“? Erzähle es weiter, damit andere gewarnt sind."
+        },
+        {
+          "phase": "learn",
+          "text": "Achtung Zweitbetrug: „Recovery-Dienste“, die gestohlene Coins zurückholen wollen, sind fast immer selbst Betrüger. Anzeige bei der Polizei erstatten."
+        }
+      ]
+    },
+    {
+      "id": "phishing-clicked",
+      "title": "Auf einen Link geklickt und Daten eingegeben",
+      "audience": "Nutzer",
+      "urgency": "high",
+      "calm": "Das passiert sehr vielen. Wichtig ist, jetzt schnell zu handeln.",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Welche Daten hast du eingegeben? Passwort, Code, Kartendaten, Phrase? Bei Phrase: Playbook „Phrase verraten“."
+        },
+        {
+          "phase": "contain",
+          "text": "Passwort des betroffenen Kontos sofort ändern – über die echte Seite (Lesezeichen), nicht über den Link."
+        },
+        {
+          "phase": "contain",
+          "text": "Überall, wo dasselbe Passwort genutzt wird, ebenfalls ändern. Bei Kartendaten: Bank anrufen und Karte sperren lassen."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Im Konto „alle Sitzungen abmelden“ und die Liste angemeldeter Geräte prüfen. Zwei-Faktor einschalten."
+        },
+        {
+          "phase": "recover",
+          "text": "Einige Tage lang Kontoauszüge und Login-Benachrichtigungen beobachten."
+        },
+        {
+          "phase": "learn",
+          "text": "Die Phishing-Mail an das Phishing-Radar der Verbraucherzentrale weiterleiten und im ToyVerse-Kanal warnen."
+        }
+      ]
+    },
+    {
+      "id": "account-hijacked",
+      "title": "Konto übernommen (Mail, Social Media, Spiel)",
+      "audience": "Nutzer",
+      "urgency": "high",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Kommst du noch hinein? Wenn nein: offizielle Wiederherstellung des Anbieters nutzen (nur über die echte Seite)."
+        },
+        {
+          "phase": "contain",
+          "text": "Freunde über einen anderen Weg warnen: Nachrichten von deinem Konto können gerade gefälscht sein."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Passwort ändern, Zwei-Faktor einschalten, unbekannte Geräte, Weiterleitungen und verknüpfte Apps entfernen."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Ist die E-Mail betroffen, alle Konten prüfen, deren Passwort sich über diese Mail zurücksetzen lässt."
+        },
+        {
+          "phase": "recover",
+          "text": "Wiederherstellungs-Telefonnummer und Ersatz-Mail aktualisieren, Backup-Codes offline aufbewahren."
+        },
+        {
+          "phase": "learn",
+          "text": "Passwort-Manager einführen, damit kein Passwort doppelt vorkommt."
+        }
+      ]
+    },
+    {
+      "id": "foreign-miner",
+      "title": "Fremder Miner entdeckt (Gerät heiß und langsam)",
+      "audience": "Nutzer und Betreiber",
+      "urgency": "high",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "ToySafe-Fund prüfen: Prozessname, Pfad, Verbindungen. Der offizielle ToyCoin-Miner (TOYPAY) ist erlaubt – alles andere nicht."
+        },
+        {
+          "phase": "contain",
+          "text": "Gerät vom Netz trennen. Prozess beenden."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Autostart-Einträge, geplante Aufgaben und unbekannte Programme entfernen. Im Zweifel Gerät neu aufsetzen."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Passwörter ändern, die auf dem Gerät gespeichert waren – Miner kommen oft mit weiterer Schadsoftware."
+        },
+        {
+          "phase": "recover",
+          "text": "Erneuten ToySafe-Scan durchführen, erst dann wieder ins Netz."
+        },
+        {
+          "phase": "learn",
+          "text": "Woher kam er? Gecrackte Software, Fake-Update, Mod-Datei? Quelle meiden und andere warnen."
+        }
+      ]
+    },
+    {
+      "id": "unknown-device",
+      "title": "Unbekanntes Gerät im Netz",
+      "audience": "Nutzer",
+      "urgency": "medium",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Hersteller und Name im Radar ansehen. Familie bzw. Team fragen, ob es jemandem gehört."
+        },
+        {
+          "phase": "contain",
+          "text": "Unbekannt? Im Router sperren oder ins Gastnetz verschieben."
+        },
+        {
+          "phase": "eradicate",
+          "text": "WLAN-Passwort ändern (WPA3 oder WPA2, langes Passwort). Danach verbinden sich nur noch Geräte, denen du es neu gibst."
+        },
+        {
+          "phase": "recover",
+          "text": "Bekannte Geräte ins ToySafe-Inventar eintragen."
+        },
+        {
+          "phase": "learn",
+          "text": "IoT-Geräte dauerhaft in ein eigenes Netz (Gast- oder IoT-WLAN) stellen."
+        }
+      ]
+    },
+    {
+      "id": "ransomware",
+      "title": "Dateien verschlüsselt, Lösegeld gefordert",
+      "audience": "Nutzer und Betreiber",
+      "urgency": "critical",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Foto der Lösegeld-Nachricht machen. Nichts löschen."
+        },
+        {
+          "phase": "contain",
+          "text": "Sofort alle betroffenen Geräte vom Netz trennen (Kabel ziehen, WLAN aus). Externe Backups NICHT anschließen."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Nicht zahlen – es gibt keine Garantie. Bei Firmen: IT-Dienstleister bzw. Incident-Response-Team holen; Polizei verständigen."
+        },
+        {
+          "phase": "recover",
+          "text": "Geräte neu aufsetzen und aus einem sauberen, offline gelagerten Backup wiederherstellen."
+        },
+        {
+          "phase": "learn",
+          "text": "3-2-1-Backups einführen und das Zurückspielen regelmäßig testen."
+        }
+      ]
+    },
+    {
+      "id": "secret-leaked",
+      "title": "Betreiber: Geheimnis im Code veröffentlicht",
+      "audience": "Betreiber",
+      "urgency": "critical",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Welches Geheimnis (API-Schlüssel, Token, Passwort, privater Schlüssel)? Seit wann öffentlich?"
+        },
+        {
+          "phase": "contain",
+          "text": "Geheimnis SOFORT beim Anbieter widerrufen und neu erzeugen. Löschen aus Git reicht nicht – es steckt in der Historie und in Forks."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Zugriffsprotokolle des Anbieters prüfen: Wurde der Schlüssel benutzt? Geheimnisse künftig nur über Umgebungsvariablen oder einen Tresor laden."
+        },
+        {
+          "phase": "recover",
+          "text": "gitleaks als pre-commit-Hook und in der CI aktivieren."
+        },
+        {
+          "phase": "learn",
+          "text": "Kurzer Bericht ans Team, ohne Schuldzuweisung (Blameless Postmortem)."
+        }
+      ]
+    },
+    {
+      "id": "ddos",
+      "title": "Betreiber: Dienst wird überflutet (DDoS/Botnetz)",
+      "audience": "Betreiber",
+      "urgency": "high",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Überlast bestätigen: Anfragen pro Sekunde, Quell-Netze, betroffene Endpunkte."
+        },
+        {
+          "phase": "contain",
+          "text": "Schutzdienst bzw. CDN aktivieren, Ratenbegrenzung und Caching hochfahren, teure Endpunkte vorübergehend drosseln."
+        },
+        {
+          "phase": "contain",
+          "text": "Community ruhig und ehrlich informieren (Status-Seite). Nie Wallet-Aktionen empfehlen – Betrüger nutzen Störungen für Fake-Support."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Missbrauchte Quellen beim Provider melden."
+        },
+        {
+          "phase": "recover",
+          "text": "Normalbetrieb schrittweise wiederherstellen und beobachten."
+        },
+        {
+          "phase": "learn",
+          "text": "Kapazität, Ratenbegrenzung und Notfall-Kontakte zum Hoster dokumentieren."
+        }
+      ]
+    },
+    {
+      "id": "harassment",
+      "title": "Belästigung oder Erpressung im ToyVerse",
+      "audience": "Nutzer und Moderation",
+      "urgency": "high",
+      "calm": "Du bist nicht schuld. Du musst das nicht allein lösen.",
+      "steps": [
+        {
+          "phase": "detect",
+          "text": "Nicht zahlen und nicht weiter antworten."
+        },
+        {
+          "phase": "contain",
+          "text": "Beweise sichern: Screenshots mit Datum, Benutzername, Links. Dann die Person blockieren."
+        },
+        {
+          "phase": "eradicate",
+          "text": "Im Spiel bzw. in der Plattform melden. Bei Drohungen oder Erpressung: Anzeige bei der Polizei (Onlinewache)."
+        },
+        {
+          "phase": "recover",
+          "text": "Mit einer Vertrauensperson sprechen. Jugendliche erreichen die Nummer gegen Kummer unter 116 111. Bei Hass im Netz hilft HateAid."
+        },
+        {
+          "phase": "learn",
+          "text": "Privatsphäre-Einstellungen prüfen: Wer darf dich anschreiben, wer sieht deine Profile?"
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Polizei-Notruf",
+      "detail": "110 bei akuter Gefahr"
+    },
+    {
+      "name": "Onlinewache der Polizei",
+      "detail": "Anzeige im Internet über die Webseite der Polizei deines Bundeslandes"
+    },
+    {
+      "name": "BSI für Verbraucher",
+      "detail": "Hilfe und Warnungen des Bundesamts für Sicherheit in der Informationstechnik",
+      "url": "https://www.bsi.bund.de"
+    },
+    {
+      "name": "Phishing-Radar der Verbraucherzentrale",
+      "detail": "Phishing melden und aktuelle Maschen",
+      "url": "https://www.verbraucherzentrale.de/phishing-radar"
+    },
+    {
+      "name": "Nummer gegen Kummer",
+      "detail": "116 111 – für Kinder und Jugendliche, anonym und kostenlos"
+    },
+    {
+      "name": "HateAid",
+      "detail": "Beratung bei digitaler Gewalt",
+      "url": "https://hateaid.org"
+    }
+  ]
+}

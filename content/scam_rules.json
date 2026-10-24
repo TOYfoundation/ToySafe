@@ -1,0 +1,119 @@
+{
+  "schema": "toysafe.scam-rules/1",
+  "note": "Regeln für den Scam-Detektor. Läuft vollständig im Gerät, nichts wird gesendet. Muster sind reguläre Ausdrücke (JavaScript, Flag i). Gewicht 0-100: ab 60 Punkten Summe gilt eine Nachricht als sehr wahrscheinlich Betrug.",
+  "brand_keywords": ["toyverse", "toypay", "toycoin", "toychain", "toyscan", "toyquest", "toypost", "toycash"],
+  "official_domains": [],
+  "official_domains_note": "Offizielle Domains sind noch nicht festgelegt (ToyVerse-web: site.json). Betreiber tragen sie hier ein; Nutzer können eigene Lesezeichen in den Einstellungen ergänzen.",
+  "rules": [
+    {
+      "id": "phrase-request",
+      "weight": 90,
+      "title": "Fragt nach Phrase, Seed oder privatem Schlüssel",
+      "patterns": ["(wiederherstellungs|recovery|seed|geheim)[- ]?(phrase|satz|wörter|words)", "\\b(12|24)\\s*(wörter|words)\\b", "private?n?\\s*(key|schlüssel)", "mnemonic", "secret recovery"],
+      "fact": "Niemand im ToyVerse fragt je nach deiner Phrase – kein Support, keine App, kein NPC."
+    },
+    {
+      "id": "old-token-swap",
+      "weight": 80,
+      "title": "Tausch alter ToyCoin-Token oder Bridge",
+      "patterns": ["(alte|old)n?\\s+toy\\s?coin", "(polygon|ethereum|erc-?20).{0,40}(toy|tausch|swap|migration)", "(tausch|swap|migrat|bridge|brücke).{0,40}(toy|toychain)", "1\\s?:\\s?1"],
+      "fact": "Alte ToyCoin-Token auf Polygon und Ethereum sind kein ToyChain-TOY. Es gibt keinen Tausch und keine Bridge."
+    },
+    {
+      "id": "presale",
+      "weight": 75,
+      "title": "Vorverkauf, Presale oder Reserve",
+      "patterns": ["pre-?sale", "vorverkauf", "private\\s*sale", "\\bico\\b", "frühzeichner", "early\\s*investor", "whitelist.{0,20}(kauf|buy|sale)"],
+      "fact": "Totaler Fair Launch: kein Premint, kein Presale, keine Reserve. Alle TOY entstehen durch Arbeit im Netz."
+    },
+    {
+      "id": "yield-promise",
+      "weight": 70,
+      "title": "Garantierte Rendite oder Gewinne",
+      "patterns": ["garantiert", "guaranteed", "\\d+\\s?%\\s*(pro|per|im|a)\\s*(tag|woche|monat|day|week|month)", "verdopp", "double your", "passives?\\s*einkommen", "risikolos", "risk[- ]?free"],
+      "fact": "Im ToyVerse gibt es keine Renditeversprechen. Garantierte Gewinne sind ein klassisches Betrugszeichen."
+    },
+    {
+      "id": "item-shop",
+      "weight": 55,
+      "title": "Spiel-Items gegen Geld",
+      "patterns": ["(item|säbel|schwert|held|skin|gegenstand).{0,40}(kaufen|kauf|buy|shop|für\\s*\\d+\\s*toy)", "(kaufen|buy).{0,30}(item|level|stufe)"],
+      "fact": "TOYQUEST-Items erspielst du, kaufen kannst du sie nicht."
+    },
+    {
+      "id": "toychain-token",
+      "weight": 60,
+      "title": "Token, NFT oder Smart Contract auf der ToyChain",
+      "patterns": ["toychain.{0,30}(token|nft|smart\\s*contract|dapp)", "(token|nft).{0,20}auf\\s*der\\s*toychain"],
+      "fact": "Auf der ToyChain gibt es nur den Coin TOY – keine Token, keine NFTs, keine Smart Contracts."
+    },
+    {
+      "id": "testnet-value",
+      "weight": 60,
+      "title": "Testnet-TOY mit angeblichem Wert",
+      "patterns": ["testnet.{0,40}(verkauf|kaufen|sell|buy|wert|value|€|\\$|eur)"],
+      "fact": "Testnet-TOY haben keinen Wert und werden nie übernommen."
+    },
+    {
+      "id": "poker-toy",
+      "weight": 45,
+      "title": "Glücksspiel mit TOY",
+      "patterns": ["(poker|casino|wette|bet).{0,40}(toy|toycoin)"],
+      "fact": "Spiele mit Einsatz laufen nur mit Dukaten. TOY-Einsätze gibt es nicht."
+    },
+    {
+      "id": "fake-support",
+      "weight": 40,
+      "title": "Angeblicher Support meldet sich von selbst",
+      "patterns": ["support[- ]?(team|mitarbeiter|agent)", "(dein|ihr|your)\\s*konto\\s*(wird|wurde)\\s*(gesperrt|eingefroren|deaktiviert)", "account\\s*(suspended|locked|frozen)", "verifizier", "verify your (wallet|account)"],
+      "fact": "Echter Support schreibt dich nicht ungefragt an und droht nicht mit Sperren."
+    },
+    {
+      "id": "remote-tool",
+      "weight": 55,
+      "title": "Soll Fernwartungs-Software installieren",
+      "patterns": ["anydesk", "teamviewer", "screenconnect", "quick\\s?support", "rustdesk", "fernwartung", "bildschirm\\s*teilen", "screen\\s*share"],
+      "fact": "Wer per Fernwartung auf dein Gerät will, kann alles sehen und tun – auch deine Wallet öffnen."
+    },
+    {
+      "id": "urgency",
+      "weight": 20,
+      "title": "Zeitdruck",
+      "patterns": ["sofort", "dringend", "urgent", "innerhalb\\s*(von\\s*)?\\d+\\s*(minuten|stunden)", "letzte\\s*chance", "nur\\s*heute", "within \\d+ (minutes|hours)", "jetzt oder nie"],
+      "fact": "Zeitdruck soll verhindern, dass du nachdenkst oder nachfragst."
+    },
+    {
+      "id": "secrecy",
+      "weight": 25,
+      "title": "Verlangt Geheimhaltung",
+      "patterns": ["nicht\\s*anrufen", "sag\\s*(es\\s*)?niemandem", "unter\\s*uns", "don'?t tell", "keep (this|it) (secret|between us)"],
+      "fact": "Wer Geheimhaltung verlangt, will verhindern, dass dich jemand warnt."
+    },
+    {
+      "id": "gift-airdrop",
+      "weight": 35,
+      "title": "Geschenk, Airdrop oder Gewinn zum Abholen",
+      "patterns": ["airdrop", "giveaway", "gewonnen", "you('ve)? won", "claim", "abholen", "gratis\\s*toy", "free\\s*toy"],
+      "fact": "Gratis-TOY zum Abholen gibt es nicht. TOY entstehen durch Arbeit im Netz."
+    },
+    {
+      "id": "payment-pressure",
+      "weight": 30,
+      "title": "Ungewöhnlicher Zahlungsweg",
+      "patterns": ["gutschein\\s*code", "gift\\s*card", "paysafe", "steam\\s*karte", "western\\s*union", "an\\s*diese\\s*adresse\\s*senden", "send\\s*to\\s*this\\s*address"],
+      "fact": "Gutscheinkarten und unbekannte Adressen sind Lieblingswege von Betrügern, weil Zahlungen nicht zurückgeholt werden können."
+    },
+    {
+      "id": "sextortion",
+      "weight": 50,
+      "title": "Erpressung mit Bildern oder Videos",
+      "patterns": ["(bilder|fotos|video|webcam).{0,60}(veröffentlich|schick.{0,10}(an|allen)|freunde|familie)", "(zahl|pay).{0,40}(oder|or).{0,40}(veröffentlich|publish)"],
+      "fact": "Nicht zahlen, nicht antworten, Beweise sichern und Hilfe holen. Du bist nicht schuld."
+    }
+  ],
+  "link_checks": {
+    "shorteners": ["bit.ly", "tinyurl.com", "t.co", "goo.gl", "is.gd", "ow.ly", "cutt.ly", "rebrand.ly", "shorturl.at"],
+    "suspicious_tlds": ["zip", "mov", "top", "xyz", "click", "country", "gq", "tk", "ml", "cf", "ga"],
+    "homoglyphs": {"0": "o", "1": "l", "3": "e", "4": "a", "5": "s", "7": "t", "rn": "m", "vv": "w", "і": "i", "о": "o", "а": "a", "е": "e", "р": "p", "с": "c", "у": "y"}
+  }
+}
