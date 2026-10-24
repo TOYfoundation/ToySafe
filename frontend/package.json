@@ -1,0 +1,32 @@
+{
+  "name": "toysafe-cockpit",
+  "private": true,
+  "version": "0.7.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:single": "vite build --mode single",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "check:i18n": "node tools/check-i18n.mjs",
+    "check": "tsc --noEmit && node tools/check-i18n.mjs",
+    "e2e": "node tools/playthrough.mjs"
+  },
+  "dependencies": {
+    "@fontsource/amiri": "5.3.0",
+    "@fontsource/chakra-petch": "5.3.0",
+    "@noble/hashes": "1.8.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "5.2.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vite-plugin-singlefile": "2.3.3"
+  }
+}
