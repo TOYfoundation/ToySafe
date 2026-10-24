@@ -1,0 +1,24 @@
+# systemd unit for the ToySafe engine (serves the cockpit too).
+# Install: copy the repository to /opt/toysafe, create a venv, then
+#   sudo cp deploy/toysafe.service /etc/systemd/system/ && sudo systemctl enable --now toysafe
+[Unit]
+Description=ToySafe engine and cockpit
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=toysafe
+WorkingDirectory=/opt/toysafe/backend
+Environment=TOYSAFE_AUTO_UPDATE_HOURS=24
+# Set a token if the cockpit is opened from other devices in the home network:
+# Environment=TOYSAFE_API_TOKEN=change-me
+ExecStart=/opt/toysafe/.venv/bin/uvicorn toysafe.api.main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/toysafe/backend/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
