@@ -462,5 +462,6 @@
   "assets.help": "Your targets are remembered in this browser. The file also works with the command line (python -m toysafe.cli scan assets.json).",
   "assets.err.json": "The file is not valid JSON.",
   "assets.err.list": "Expected a list of 1 to 256 targets.",
-  "assets.err.item": "Each target needs a unique id, a name and a valid asset_type."
+  "assets.err.item": "Each target needs a unique id, a name and a valid asset_type.",
+  "set.version": "Version {v}, built {d}."
 }

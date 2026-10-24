@@ -113,7 +113,7 @@ export function Settings() {
               {t("set.reset")}
             </button>
           )}
-          <p className="fineprint">{t("set.about")}</p>
+          <p className="fineprint">{t("set.about")} {t("set.version", { v: __APP_VERSION__, d: __BUILD_DATE__ })}</p>
         </Panel>
       </div>
     </div>

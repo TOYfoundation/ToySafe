@@ -5,7 +5,10 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
-const base = process.argv[2] ?? "http://localhost:4173";
+const arg = process.argv[2] ?? "http://localhost:4173";
+// Works for a server ("http://host:port") and for the single-file build ("file:///…/ToySafe.html").
+const base = arg.endsWith(".html") ? arg : arg.replace(/\/+$/, "");
+const at = (route) => (base.endsWith(".html") ? `${base}#/${route}` : `${base}/#/${route}`);
 const level = JSON.parse(readFileSync(new URL("../../content/level7/missions.json", import.meta.url), "utf8"));
 const PASS = "Kamel-Wolke-Gabel-Laterne-Spiegel";
 
@@ -106,7 +109,7 @@ const errors = [];
 page.on("pageerror", (e) => errors.push(e.message));
 let ok = 0;
 for (const m of level.missions) {
-  await page.goto(`${base}/#/academy/${m.id}`);
+  await page.goto(at(`academy/${m.id}`));
   for (let i = 0; i < m.intro.length; i++) {
     await btn(page, i + 1 < m.intro.length ? "Weiter" : "Mission beginnen").click();
   }
@@ -118,7 +121,7 @@ for (const m of level.missions) {
   ok++;
   console.log(`ok  ${m.id}  ${stars}★  ${seal}`);
 }
-await page.goto(`${base}/#/academy`);
+await page.goto(at("academy"));
 const done = await page.locator(".kv dd").first().textContent();
 console.log(`progress shown: ${done}`);
 await browser.close();
