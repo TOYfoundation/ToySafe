@@ -1,0 +1,2429 @@
+{
+ "schema": "toysafe.level7/1",
+ "game": "TOYQUEST",
+ "level": 7,
+ "title": "Die Sternenwacht",
+ "subtitle": "Zeitreise in die Zukunft: Schutzschilde für das ToyVerse",
+ "note": "Alle Szenarien sind Übungen. Echte Phrasen, Schlüssel und Passwörter werden im Spiel nie abgefragt. Das Spiel erzeugt kein TOY; Belohnungen sind Dukaten, Wissens-Siegel und Kosmetik.",
+ "story": [
+  "Nach Level 5 springt die Zeitmaschine zu weit. Statt in der Moderne landet deine Gang in der Zukunft: Über Bagdad schwebt die Sternenwacht, ein Raumschiff, dessen Schildring das ganze ToyVerse schützt.",
+  "Doch die Schilde flackern. Der Wesir Ja'far Glasauge ist mit Spiegelmasken in die Zukunft gereist. Die Vierzig Schläfer haben sich als schlafende Geräte im Netz versteckt, und Rostmotten fressen die Energie der Edelsteinmine.",
+  "Kapitänin Nova braucht eine Gang, die nicht kämpft, sondern schützt: Augen offen, Türen zu, Wissen teilen."
+ ],
+ "npcs": [
+  {
+   "id": "nova",
+   "name": "Kapitänin Nova",
+   "role": "Kommandantin der Sternenwacht",
+   "explains": "Überblick, Ehrenkodex, Teamarbeit",
+   "color": "#3ee6d6"
+  },
+  {
+   "id": "heron",
+   "name": "Heron",
+   "role": "Messingfalke, Begleiter aus Herons Werkstatt (Level 5)",
+   "explains": "Hinweise, wenn du feststeckst",
+   "color": "#e8c26a"
+  },
+  {
+   "id": "warnerin",
+   "name": "Zahra, die weise Warnerin",
+   "role": "Wächterin gegen Betrug",
+   "explains": "Betrugsmaschen, Phrasen-Sicherheit",
+   "color": "#b48cff"
+  },
+  {
+   "id": "waechter",
+   "name": "Wächter Tarik",
+   "role": "Hüter der Stadtmauer",
+   "explains": "Ports, Firewall, Router",
+   "color": "#8fa3ff"
+  },
+  {
+   "id": "siegelmeister",
+   "name": "Siegelmeisterin Leyla",
+   "role": "Herrin der Siegelhalle",
+   "explains": "Passwörter, Passkeys, Zwei-Faktor",
+   "color": "#ffb86b"
+  },
+  {
+   "id": "schmied",
+   "name": "Schmied Darius",
+   "role": "Meister der Patch-Schmiede",
+   "explains": "Updates und Prioritäten",
+   "color": "#ff7b6b"
+  },
+  {
+   "id": "muenzmeister",
+   "name": "Münzmeister Idris",
+   "role": "Hüter der Schatzkammer",
+   "explains": "TOYPAY, Adressen, Konto-Schutz, der erlaubte ToyCoin-Miner",
+   "color": "#f2d06b"
+  },
+  {
+   "id": "karawanenfuehrer",
+   "name": "Karawanenführerin Samira",
+   "role": "kennt jede Route",
+   "explains": "WLAN, unterwegs sicher, VPN",
+   "color": "#6bd3ff"
+  },
+  {
+   "id": "bibliothekar",
+   "name": "Bibliothekar Yusuf",
+   "role": "Hüter der Archive",
+   "explains": "Logbücher, Spuren, Backups",
+   "color": "#9be38f"
+  },
+  {
+   "id": "glasauge",
+   "name": "Ja'far Glasauge",
+   "role": "Wesir mit Spiegelmasken (Gegenspieler)",
+   "explains": "nichts – er täuscht",
+   "color": "#ff4d6d"
+  },
+  {
+   "id": "scheherazade",
+   "name": "Großmutter Scheherazade",
+   "role": "Erzählerin im Turm der Geschichten, schützt die Jüngsten",
+   "explains": "Kinder und Familie schützen, Geheimnisse, die keine sein dürfen",
+   "color": "#ff8fc7"
+  },
+  {
+   "id": "jamila",
+   "name": "Ingenieurin Jamila",
+   "role": "Hüterin des Knotenkerns",
+   "explains": "ToyChain-Knoten betreiben, signierte Releases, Lieferkette",
+   "color": "#7ef0a8"
+  }
+ ],
+ "locations": [
+  {
+   "id": "bruecke",
+   "name": "Brücke der Sternenwacht",
+   "toysafe_station": "bridge",
+   "x": 50,
+   "y": 30
+  },
+  {
+   "id": "karawanserei",
+   "name": "Karawanserei",
+   "toysafe_station": "radar",
+   "x": 10,
+   "y": 58
+  },
+  {
+   "id": "basar",
+   "name": "Basar der Spiegel",
+   "toysafe_station": "comms",
+   "x": 24,
+   "y": 44
+  },
+  {
+   "id": "siegelhalle",
+   "name": "Siegelhalle",
+   "toysafe_station": "identity",
+   "x": 36,
+   "y": 56
+  },
+  {
+   "id": "schmiede",
+   "name": "Patch-Schmiede",
+   "toysafe_station": "shields",
+   "x": 50,
+   "y": 47
+  },
+  {
+   "id": "stadtmauer",
+   "name": "Stadtmauer von Bagdad",
+   "toysafe_station": "shields",
+   "x": 64,
+   "y": 58
+  },
+  {
+   "id": "mine",
+   "name": "Maschinenraum der Edelsteinmine",
+   "toysafe_station": "vault",
+   "x": 76,
+   "y": 47
+  },
+  {
+   "id": "schatzkammer",
+   "name": "Schatzkammer",
+   "toysafe_station": "vault",
+   "x": 80,
+   "y": 25
+  },
+  {
+   "id": "wueste",
+   "name": "Wüstenwind",
+   "toysafe_station": "comms",
+   "x": 6,
+   "y": 40
+  },
+  {
+   "id": "bibliothek",
+   "name": "Bibliothek",
+   "toysafe_station": "logbook",
+   "x": 30,
+   "y": 70
+  },
+  {
+   "id": "brunnenhaus",
+   "name": "Brunnenhaus",
+   "toysafe_station": "logbook",
+   "x": 36,
+   "y": 30
+  },
+  {
+   "id": "diwan",
+   "name": "Diwan",
+   "toysafe_station": "emergency",
+   "x": 70,
+   "y": 70
+  },
+  {
+   "id": "spiegelpalast",
+   "name": "Glasauges Spiegelpalast",
+   "toysafe_station": "crew",
+   "x": 92,
+   "y": 64
+  },
+  {
+   "id": "funkturm",
+   "name": "Funkturm der Sternenwacht",
+   "toysafe_station": "comms",
+   "x": 16,
+   "y": 28
+  },
+  {
+   "id": "knotenkern",
+   "name": "Knotenkern im Maschinenraum",
+   "toysafe_station": "operator",
+   "x": 62,
+   "y": 38
+  },
+  {
+   "id": "oase",
+   "name": "Oase der Abschriften",
+   "toysafe_station": "logbook",
+   "x": 46,
+   "y": 68
+  },
+  {
+   "id": "geschichtenturm",
+   "name": "Turm der Geschichten",
+   "toysafe_station": "crew",
+   "x": 88,
+   "y": 40
+  }
+ ],
+ "classes": {
+  "Sterngucker": "Radar-Offizier: sieht Unbekanntes zuerst (+1 Hinweis in Radar-Missionen)",
+  "Schattenfeder": "Spurenleserin: findet Getarntes (+1 Hinweis bei Rostmotten und Logbüchern)",
+  "Säbelwirbel": "Schildmeister: hält die Mauer (+1 Hinweis an der Stadtmauer)",
+  "Basarzunge": "Funkerin: durchschaut Gerede (+1 Hinweis im Basar der Spiegel)",
+  "Lautenzauber": "Ausbilder: bringt anderen bei, was er weiß (+5 % Erfahrung für die Gang, Pflicht im Boss-Kampf)",
+  "Dachfuchs": "Kletterer: sieht das Netz von oben (+1 Hinweis bei Geräten und Routen)",
+  "Wüstenblitz": "Notfall-Läufer: handelt schnell (+30 Sekunden in Zeit-Herausforderungen)",
+  "Perlenhai": "Tiefentaucher: liest tiefe Spuren (+1 Hinweis im Archiv)"
+ },
+ "rewards": {
+  "per_mission": "Wissens-Siegel der Mission und Dukaten",
+  "level": "Meisterbrief „Sternenwächter“, Aura „Schildring“, Begleiter „Messingfalke Heron“",
+  "rule": "Belohnungen geben nie Stärke gegen andere Spieler und nie TOY."
+ },
+ "missions": [
+  {
+   "id": "m01-ehrenkodex",
+   "title": "Andocken: Der Ehrenkodex der Wächter",
+   "location": "bruecke",
+   "npc": "nova",
+   "rank": "Lehrling",
+   "minutes": 4,
+   "players": "1",
+   "class_bonus": "Lautenzauber",
+   "skill": "Verantwortung: Nur prüfen, was einem gehört",
+   "intro": [
+    {
+     "npc": "nova",
+     "text": "Willkommen an Bord der Sternenwacht. Bevor du an die Schildkonsole darfst, legst du den Ehrenkodex ab."
+    },
+    {
+     "npc": "nova",
+     "text": "Unsere Scanner sind stark. Darum richten wir sie nur auf das, was uns gehört oder wofür wir eine Erlaubnis haben."
+    }
+   ],
+   "steps": [
+    {
+     "type": "multi",
+     "prompt": "Welche Ziele darfst du mit der Schildkonsole prüfen? Wähle alle richtigen.",
+     "options": [
+      {
+       "text": "Deinen eigenen Router zu Hause",
+       "correct": true
+      },
+      {
+       "text": "Den Rechner deiner Schwester – sie hat es dir ausdrücklich erlaubt",
+       "correct": true
+      },
+      {
+       "text": "Das WLAN des Cafés, in dem du sitzt",
+       "correct": false,
+       "why": "Gehört dir nicht. Nutzen ja, prüfen nein."
+      },
+      {
+       "text": "Die Webseite eines Online-Shops, der dir komisch vorkommt",
+       "correct": false,
+       "why": "Verdacht ist keine Erlaubnis. Melde ihn lieber."
+      },
+      {
+       "text": "Deinen eigenen ToyChain-Knoten auf dem Raspberry Pi",
+       "correct": true
+      },
+      {
+       "text": "Den Server eines Mitspielers, der dich im Chat geärgert hat",
+       "correct": false,
+       "why": "Rache-Scans sind verboten und machen dich selbst zum Angreifer."
+      }
+     ],
+     "hint": "Frag dich bei jedem Ziel: Gehört es mir, oder habe ich eine klare Erlaubnis?",
+     "explain": "Unerlaubtes Scannen fremder Systeme ist in vielen Ländern strafbar. ToySafe fragt deshalb vor jedem Scan nach der Startfreigabe."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "nova",
+     "text": "Gut. Ein Wächter schützt, er greift nicht an. Dein erstes Siegel."
+    }
+   ],
+   "real_world": {
+    "text": "Lege in ToySafe deine Startfreigabe an: Welche Netze und Geräte gehören dir?",
+    "link": "toysafe://station/bridge"
+   },
+   "reward": {
+    "dukaten": 50,
+    "seal": "Siegel des Ehrenkodex"
+   }
+  },
+  {
+   "id": "m02-radarnacht",
+   "title": "Radarnacht über der Karawanserei",
+   "location": "karawanserei",
+   "npc": "nova",
+   "rank": "Lehrling",
+   "minutes": 6,
+   "players": "1-2",
+   "class_bonus": "Sterngucker",
+   "skill": "Überblick: Welche Geräte sind in meinem Netz?",
+   "intro": [
+    {
+     "npc": "nova",
+     "text": "Jede Karawane, die ankommt, wird ins Buch geschrieben. Heute Nacht sind mehr Kamele im Hof als im Buch."
+    },
+    {
+     "npc": "heron",
+     "text": "Krrk! Das Radar zeigt jedes Gerät. Die meisten kennst du. Eines nicht."
+    }
+   ],
+   "steps": [
+    {
+     "type": "classify",
+     "prompt": "Sortiere die Geräte, die das Radar gefunden hat.",
+     "buckets": [
+      {
+       "id": "known",
+       "label": "Bekannt"
+      },
+      {
+       "id": "check",
+       "label": "Prüfen!"
+      }
+     ],
+     "items": [
+      {
+       "text": "Router · AVM · seit 412 Tagen",
+       "answer": "known"
+      },
+      {
+       "text": "Laptop-Anna · Lenovo · seit 300 Tagen",
+       "answer": "known"
+      },
+      {
+       "text": "esp-77 · Espressif · neu seit 03:12 Uhr",
+       "answer": "check",
+       "why": "Neu, mitten in der Nacht, ein typischer Mikrocontroller für Bastel- und IoT-Geräte. Wer hat es angeschlossen?"
+      },
+      {
+       "text": "Spielekonsole · Sony · seit 90 Tagen",
+       "answer": "known"
+      },
+      {
+       "text": "Gerät ohne Namen · Hersteller unbekannt · antwortet auf Port 23 (Telnet)",
+       "answer": "check",
+       "why": "Unbekannt und mit Telnet: ein Lieblingsziel von Botnetzen."
+      },
+      {
+       "text": "Kamera Flur · Reolink · seit 200 Tagen",
+       "answer": "known"
+      }
+     ],
+     "hint": "Achte auf zwei Dinge: Ist das Gerät neu? Und kennt jemand den Hersteller?",
+     "explain": "Ein gepflegtes Geräte-Inventar ist der einfachste Alarm: Alles, was nicht drinsteht, wird geprüft."
+    },
+    {
+     "type": "choice",
+     "prompt": "Du weißt nicht, wem esp-77 gehört. Was tust du zuerst?",
+     "options": [
+      {
+       "text": "Familie bzw. Team fragen, dann das Gerät im Router-Menü vorübergehend sperren",
+       "correct": true,
+       "feedback": "Genau: erst klären, dann eindämmen."
+      },
+      {
+       "text": "Das Gerät mit Angriffs-Tools lahmlegen",
+       "correct": false,
+       "feedback": "Nein. Auch im eigenen Netz greifen Wächter nicht an, sie sperren und klären."
+      },
+      {
+       "text": "Ignorieren, es tut ja nichts",
+       "correct": false,
+       "feedback": "Schläfer tun lange nichts. Bis sie es tun."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "nova",
+     "text": "Es war die neue Wetterstation des Nachbarn – mit eurem alten WLAN-Passwort. Passwort geändert, Gerät ins Gastnetz. Sauber."
+    }
+   ],
+   "real_world": {
+    "text": "Starte den Radar-Scan in ToySafe und trage deine Geräte ins Inventar ein.",
+    "link": "toysafe://station/radar"
+   },
+   "reward": {
+    "dukaten": 80,
+    "seal": "Siegel des Radars"
+   }
+  },
+  {
+   "id": "m03-spiegelmasken",
+   "title": "Die Spiegelmasken des Wesirs",
+   "location": "basar",
+   "npc": "warnerin",
+   "rank": "Geselle",
+   "minutes": 7,
+   "players": "1-3",
+   "class_bonus": "Basarzunge",
+   "skill": "Betrug erkennen: Phishing, Fake-Support, falsche Versprechen",
+   "intro": [
+    {
+     "npc": "warnerin",
+     "text": "Glasauge hat den Basar mit Spiegelmasken gefüllt. Jede Maske sieht aus wie ein Freund, ein Händler oder wie ich."
+    },
+    {
+     "npc": "warnerin",
+     "text": "Merke dir die festen Regeln des ToyVerse. Wer gegen sie verstößt, trägt eine Maske."
+    }
+   ],
+   "steps": [
+    {
+     "type": "classify",
+     "prompt": "Echt oder Maske? Sortiere die Nachrichten.",
+     "buckets": [
+      {
+       "id": "ok",
+       "label": "Echt"
+      },
+      {
+       "id": "scam",
+       "label": "Maske"
+      }
+     ],
+     "items": [
+      {
+       "text": "„TOYPAY-Support: Dein Konto wird gesperrt. Bestätige deine 24 Wörter hier: toypay-hilfe.app“",
+       "answer": "scam",
+       "why": "Niemand – kein Support, keine App, kein NPC – fragt je nach deiner Phrase."
+      },
+      {
+       "text": "„Tausche jetzt deine alten ToyCoin-Token von Polygon 1:1 in echte ToyChain-TOY!“",
+       "answer": "scam",
+       "why": "Alte Token auf Polygon und Ethereum sind kein ToyChain-TOY. Es gibt keinen Tausch und keine Bridge."
+      },
+      {
+       "text": "„Presale! Sichere dir TOY vor dem Start mit 40 % Rabatt.“",
+       "answer": "scam",
+       "why": "Totaler Fair Launch: kein Premint, kein Presale, keine Reserve. Jedes TOY entsteht durch Arbeit im Netz."
+      },
+      {
+       "text": "„Garantiert 12 % pro Monat, wenn du deine TOY bei uns parkst.“",
+       "answer": "scam",
+       "why": "Im ToyVerse gibt es keine Renditeversprechen. Garantierte Gewinne sind ein klassisches Betrugszeichen."
+      },
+      {
+       "text": "„Der Mondlicht-Krummsäbel ist im Shop für 30 TOY zu haben.“",
+       "answer": "scam",
+       "why": "Items erspielst du, kaufen kannst du sie nicht."
+      },
+      {
+       "text": "Wallet-Hinweis: „Erste Zahlung über 10 TOY an eine neue Adresse – Probebetrag senden?“",
+       "answer": "ok",
+       "why": "Das ist eine echte Schutzfunktion von TOYPAY."
+      },
+      {
+       "text": "„Deine Gang hat die Nachtgeschichte geschafft: +120 Dukaten.“",
+       "answer": "ok",
+       "why": "Dukaten gibt es im Spiel – ohne Link, ohne Daten."
+      },
+      {
+       "text": "„Hey, ich bin's, dein Gang-Kumpel. Neues Handy. Kannst du mir schnell 50 TOY leihen? Bitte nicht anrufen.“",
+       "answer": "scam",
+       "why": "Neue Nummer + Geld + Eile + „nicht anrufen“ = Maske. Kurz auf dem alten Weg nachfragen."
+      }
+     ],
+     "hint": "Vier Fragen: Will jemand meine Phrase? Verspricht jemand Gewinn? Drängt jemand? Widerspricht es den festen Regeln?",
+     "explain": "Betrug funktioniert über Gefühle: Angst (Sperrung), Gier (Rendite), Hilfsbereitschaft (Freund in Not) und Eile."
+    },
+    {
+     "type": "choice",
+     "prompt": "Welche Adresse gehört wirklich zum ToyVerse? (Tipp: Glasauge liebt Buchstaben, die wie andere aussehen.)",
+     "mono": true,
+     "options": [
+      {
+       "text": "t0yverse-wallet.com",
+       "correct": false,
+       "feedback": "Eine Null statt o."
+      },
+      {
+       "text": "xn--tyverse-5za.org",
+       "correct": false,
+       "feedback": "„xn--“ verrät einen Namen mit Sonderzeichen, der im Browser wie das Original aussehen kann."
+      },
+      {
+       "text": "Die Adresse, die du selbst als Lesezeichen gespeichert hast",
+       "correct": true,
+       "feedback": "Genau. Nie über Links aus Nachrichten, immer über das eigene Lesezeichen."
+      },
+      {
+       "text": "toyverse.support-login.net",
+       "correct": false,
+       "feedback": "Entscheidend ist der Teil direkt vor der Endung: support-login.net. Toyverse ist nur Dekoration."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "warnerin",
+     "text": "Die Masken fallen. Und denk dran: Wer hereinfällt, ist nicht dumm. Er wurde getäuscht. Hilf ihm, statt zu lachen."
+    }
+   ],
+   "real_world": {
+    "text": "Prüfe verdächtige Nachrichten mit dem Scam-Detektor in ToySafe.",
+    "link": "toysafe://station/comms"
+   },
+   "reward": {
+    "dukaten": 120,
+    "seal": "Siegel der entlarvten Maske"
+   }
+  },
+  {
+   "id": "m04-passphrasen-bruecke",
+   "title": "Die Passphrasen-Brücke",
+   "location": "siegelhalle",
+   "npc": "siegelmeister",
+   "rank": "Geselle",
+   "minutes": 5,
+   "players": "1",
+   "class_bonus": "Sterngucker",
+   "skill": "Starke, merkbare Passwörter",
+   "intro": [
+    {
+     "npc": "siegelmeister",
+     "text": "Über diese Brücke kommt nur, wer ein starkes Losungswort spricht. Kurz und kompliziert ist schwach. Lang und einfach ist stark."
+    },
+    {
+     "npc": "heron",
+     "text": "Krrk! Sag niemals ein echtes Passwort hier. Wir üben nur."
+    }
+   ],
+   "steps": [
+    {
+     "type": "passphrase",
+     "prompt": "Baue eine Übungs-Passphrase aus mindestens vier zufälligen Wörtern. Die Brücke trägt ab 60 Bit Stärke.",
+     "min_bits": 60,
+     "hint": "Vier bis sechs Wörter, die nicht zusammengehören, z. B. Kamel-Wolke-Gabel-Laterne. Ein Satz aus einem Lied ist zu leicht zu erraten.",
+     "explain": "Jedes zusätzliche zufällige Wort macht das Raten tausendfach schwerer. Sonderzeichen-Rätsel wie P@ssw0rt! kennt jeder Knackrechner."
+    },
+    {
+     "type": "choice",
+     "prompt": "Du hast 40 Konten. Wie merkst du dir 40 starke, verschiedene Passwörter?",
+     "options": [
+      {
+       "text": "Ein Passwort-Manager mit einer starken Passphrase als Hauptschlüssel",
+       "correct": true,
+       "feedback": "Genau. Du merkst dir eine Passphrase, der Manager den Rest."
+      },
+      {
+       "text": "Ein starkes Passwort für alles",
+       "correct": false,
+       "feedback": "Wird ein Dienst gehackt, sind alle anderen offen (Credential Stuffing)."
+      },
+      {
+       "text": "Eine Datei passwoerter.txt auf dem Desktop",
+       "correct": false,
+       "feedback": "Die findet jede Schadsoftware zuerst."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "siegelmeister",
+     "text": "Die Brücke hält. Für die Wallet gilt noch mehr: Die Phrase gehört offline aufgeschrieben und nie in einen Passwort-Manager in der Cloud."
+    }
+   ],
+   "real_world": {
+    "text": "Prüfe in ToySafe, ob ein Passwort in bekannten Datenlecks auftaucht (dein Passwort verlässt dabei nie das Gerät).",
+    "link": "toysafe://station/identity"
+   },
+   "reward": {
+    "dukaten": 90,
+    "seal": "Siegel der Passphrase"
+   }
+  },
+  {
+   "id": "m05-tor-der-drei-siegel",
+   "title": "Das Tor der drei Siegel",
+   "location": "siegelhalle",
+   "npc": "siegelmeister",
+   "rank": "Geselle",
+   "minutes": 6,
+   "players": "2-5 (Gang)",
+   "class_bonus": "Säbelwirbel",
+   "skill": "Zwei-Faktor-Anmeldung und Passkeys",
+   "team": {
+    "rule": "Das Tor öffnet sich nur, wenn mindestens zwei Drittel der Gang ihr Siegel setzen – wie die Finalität auf der ToyChain.",
+    "roles": [
+     "Siegelträger",
+     "Siegelträger",
+     "Siegelträger"
+    ]
+   },
+   "intro": [
+    {
+     "npc": "siegelmeister",
+     "text": "Ein Siegel kann gestohlen werden. Zwei verschiedene Siegel zugleich – das schafft kaum ein Dieb."
+    }
+   ],
+   "steps": [
+    {
+     "type": "multi",
+     "prompt": "Wähle zwei Siegel verschiedener Art, die zusammen das Tor öffnen.",
+     "options": [
+      {
+       "text": "Etwas, das du weißt: deine Passphrase",
+       "correct": true
+      },
+      {
+       "text": "Etwas, das du hast: Authenticator-App oder Sicherheitsschlüssel",
+       "correct": true
+      },
+      {
+       "text": "Noch ein zweites Passwort",
+       "correct": false,
+       "why": "Zwei Passwörter sind dieselbe Art. Wer eins abfischt, fischt auch das zweite."
+      },
+      {
+       "text": "Die Antwort auf „Name deines ersten Haustiers?“",
+       "correct": false,
+       "why": "Steht oft in sozialen Netzwerken – zählt als Wissen und ist leicht zu erraten."
+      }
+     ],
+     "hint": "Wissen, Besitz, Körper: Zwei verschiedene Arten sind gefragt.",
+     "explain": "Am stärksten sind Passkeys bzw. Sicherheitsschlüssel: Sie funktionieren nur auf der echten Seite und lassen sich nicht abfischen. SMS-Codes sind besser als nichts, aber am schwächsten."
+    },
+    {
+     "type": "choice",
+     "prompt": "Mitten in der Nacht kommt eine Anmelde-Bestätigung aufs Handy, die du nicht ausgelöst hast. Und noch eine. Und noch eine.",
+     "options": [
+      {
+       "text": "Ablehnen, Passwort sofort ändern und die Anmeldungen im Konto prüfen",
+       "correct": true,
+       "feedback": "Richtig. Jemand kennt dein Passwort und hofft, dass du aus Müdigkeit zustimmst (MFA-Bombing)."
+      },
+      {
+       "text": "Einmal bestätigen, damit es aufhört",
+       "correct": false,
+       "feedback": "Genau darauf wartet der Angreifer."
+      },
+      {
+       "text": "Handy ausschalten und schlafen",
+       "correct": false,
+       "feedback": "Das Passwort ist trotzdem verraten. Erst ändern, dann schlafen."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "siegelmeister",
+     "text": "Das Tor steht offen. Richtet euch Zwei-Faktor zuerst bei der E-Mail ein – sie ist der Generalschlüssel zu allen anderen Konten."
+    }
+   ],
+   "real_world": {
+    "text": "Hake in ToySafe ab, bei welchen Konten Zwei-Faktor oder Passkey aktiv ist.",
+    "link": "toysafe://station/identity"
+   },
+   "reward": {
+    "dukaten": 120,
+    "seal": "Siegel der zwei Faktoren"
+   }
+  },
+  {
+   "id": "m06-patch-schmiede",
+   "title": "Die Schmiede der Patches",
+   "location": "schmiede",
+   "npc": "schmied",
+   "rank": "Meister",
+   "minutes": 6,
+   "players": "1-2",
+   "class_bonus": "Dachfuchs",
+   "skill": "Updates priorisieren wie ein Profi",
+   "intro": [
+    {
+     "npc": "schmied",
+     "text": "Vier Risse im Schildring, aber nur Zeit für einen nach dem anderen. Welchen schmiede ich zuerst?"
+    },
+    {
+     "npc": "schmied",
+     "text": "Die Sternenwacht folgt einer Regel: Was Angreifer gerade wirklich ausnutzen, kommt immer zuerst."
+    }
+   ],
+   "steps": [
+    {
+     "type": "order",
+     "prompt": "Bringe die Risse in die richtige Reihenfolge (dringendster zuerst).",
+     "items": [
+      {
+       "text": "Router, von außen erreichbar: Lücke steht auf der Liste aktiv ausgenutzter Lücken (KEV)"
+      },
+      {
+       "text": "Webserver, von außen erreichbar: kritische Lücke (CVSS 9.8), noch nicht ausgenutzt"
+      },
+      {
+       "text": "Laptop im Heimnetz: hohe Lücke (CVSS 7.5) im Browser"
+      },
+      {
+       "text": "Test-Rechner im Keller: mittlere Lücke (CVSS 5.0)"
+      }
+     ],
+     "hint": "Erst: Wird es ausgenutzt? Dann: Wie schlimm? Dann: Wie wichtig und wie sichtbar ist das Gerät?",
+     "explain": "So rechnet auch ToySafe: aktiv ausgenutzt (+1000), dann Schweregrad, dann Wichtigkeit des Geräts und ob es von außen erreichbar ist."
+    },
+    {
+     "type": "choice",
+     "prompt": "Für die Spielekonsole gibt es seit drei Jahren keine Updates mehr. Was ist am klügsten?",
+     "options": [
+      {
+       "text": "Weiter nutzen, aber nur im Gastnetz und ohne Portfreigaben; beim nächsten Kauf auf Update-Garantie achten",
+       "correct": true,
+       "feedback": "Gut abgewogen: Risiko eindämmen statt panisch wegwerfen."
+      },
+      {
+       "text": "Eine Firmware aus einem Forum installieren",
+       "correct": false,
+       "feedback": "Unbekannte Firmware kann selbst Schadsoftware sein."
+      },
+      {
+       "text": "Nichts tun, es ist ja nur eine Konsole",
+       "correct": false,
+       "feedback": "Auch Konsolen können Schläfer eines Botnetzes werden."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "schmied",
+     "text": "Der Ring glüht wieder. Tipp: Automatische Updates einschalten, dann muss ich weniger schmieden."
+    }
+   ],
+   "real_world": {
+    "text": "Arbeite die Liste in der Station Schilde von oben nach unten ab.",
+    "link": "toysafe://station/shields"
+   },
+   "reward": {
+    "dukaten": 150,
+    "seal": "Siegel der Schmiede"
+   }
+  },
+  {
+   "id": "m07-stadtmauer",
+   "title": "Die Mauer von Bagdad",
+   "location": "stadtmauer",
+   "npc": "waechter",
+   "rank": "Meister",
+   "minutes": 6,
+   "players": "1-2",
+   "class_bonus": "Säbelwirbel",
+   "skill": "Router und Firewall: nur nötige Türen offen",
+   "intro": [
+    {
+     "npc": "waechter",
+     "text": "Jede Tür in der Mauer ist ein Port. Händler brauchen ein Tor, Schmuggler lieben vergessene Hintertüren."
+    }
+   ],
+   "steps": [
+    {
+     "type": "toggle",
+     "prompt": "Welche Türen bleiben von außen offen? Stelle die Mauer richtig ein.",
+     "on_label": "offen",
+     "off_label": "zu",
+     "items": [
+      {
+       "label": "443 · HTTPS für die Basar-Webseite",
+       "initial": false,
+       "target": true,
+       "why": "Die Seite soll erreichbar sein – verschlüsselt."
+      },
+      {
+       "label": "23 · Telnet zur alten Kamera",
+       "initial": true,
+       "target": false,
+       "why": "Unverschlüsselt und Lieblingsziel von Botnetzen."
+      },
+      {
+       "label": "445 · Dateifreigabe (SMB)",
+       "initial": true,
+       "target": false,
+       "why": "Gehört nie ins Internet – Ransomware-Würmer suchen genau danach."
+      },
+      {
+       "label": "UPnP · Geräte öffnen Türen selbst",
+       "initial": true,
+       "target": false,
+       "why": "Lässt jedes Gerät eigenmächtig Ports öffnen."
+      },
+      {
+       "label": "3389 · Fernwartung (RDP) direkt",
+       "initial": true,
+       "target": false,
+       "why": "Fernzugriff nur über VPN, nie direkt."
+      },
+      {
+       "label": "P2P-Port deines ToyChain-Knotens",
+       "initial": false,
+       "target": true,
+       "why": "Damit dein Knoten mit anderen sprechen kann. Die Steuer-Schnittstelle (RPC) bleibt dagegen zu."
+      },
+      {
+       "label": "8545 · RPC-Steuerung des Knotens",
+       "initial": true,
+       "target": false,
+       "why": "Die Steuer-Schnittstelle gehört nur an 127.0.0.1."
+      }
+     ],
+     "hint": "Jede offene Tür braucht einen Grund. Kein Grund – zu.",
+     "explain": "Weniger offene Türen heißt weniger Angriffsfläche. Prüfe im Router-Menü die Portfreigaben und schalte UPnP ab, wenn du es nicht brauchst."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "waechter",
+     "text": "Die Mauer steht. Ich habe noch nie einen Schmuggler durch eine geschlossene Tür kommen sehen."
+    }
+   ],
+   "real_world": {
+    "text": "Öffne die Router-Checkliste in ToySafe: Portfreigaben, UPnP, Fernzugriff, Firmware-Updates.",
+    "link": "toysafe://station/shields"
+   },
+   "reward": {
+    "dukaten": 150,
+    "seal": "Siegel der Mauer"
+   }
+  },
+  {
+   "id": "m08-rostmotten",
+   "title": "Rostmotten im Maschinenraum",
+   "location": "mine",
+   "npc": "muenzmeister",
+   "rank": "Meister",
+   "minutes": 7,
+   "players": "1-3",
+   "class_bonus": "Schattenfeder",
+   "skill": "Heimliche Miner und Fernwartungs-Tools erkennen",
+   "intro": [
+    {
+     "npc": "muenzmeister",
+     "text": "Die Edelsteinmine wird heiß, obwohl niemand gräbt. Rostmotten! Sie rechnen heimlich für fremde Kassen."
+    },
+    {
+     "npc": "muenzmeister",
+     "text": "Aber Vorsicht: Unser eigener ToyCoin-Miner gehört hierher. Er ist der einzige erlaubte."
+    }
+   ],
+   "steps": [
+    {
+     "type": "classify",
+     "prompt": "Sortiere die Prozesse im Maschinenraum.",
+     "buckets": [
+      {
+       "id": "ok",
+       "label": "Gehört hierher"
+      },
+      {
+       "id": "moth",
+       "label": "Rostmotte"
+      },
+      {
+       "id": "ask",
+       "label": "Nachfragen"
+      }
+     ],
+     "items": [
+      {
+       "text": "toypay-miner · über TOYPAY gestartet · nur mit Ladekabel",
+       "answer": "ok",
+       "why": "Der offizielle ToyCoin-Miner – laut ToySafe-Allowlist erlaubt."
+      },
+      {
+       "text": "systemd-helper · 100 % CPU · Verbindung zu Port 3333",
+       "answer": "moth",
+       "why": "Tarnname, volle Last und der typische Mining-Pool-Port (Stratum)."
+      },
+      {
+       "text": "xmrig · gestartet aus /tmp",
+       "answer": "moth",
+       "why": "Bekannter Fremd-Miner aus einem temporären Ordner."
+      },
+      {
+       "text": "AnyDesk · installiert gestern · niemand erinnert sich",
+       "answer": "ask",
+       "why": "Fernwartungs-Tools sind nicht böse, werden aber oft von Betrügern installiert („Ich bin vom Support…“)."
+      },
+      {
+       "text": "Browser · 5 % CPU",
+       "answer": "ok"
+      },
+      {
+       "text": "Backup-Dienst · nachts aktiv",
+       "answer": "ok"
+      }
+     ],
+     "hint": "Tarnnamen, volle Last ohne Grund und Verbindungen zu Pool-Ports verraten Rostmotten.",
+     "explain": "ToySafe meldet jeden fremden Miner als kritisch, Fernwartungs-Tools als hoch – der offizielle ToyCoin-Miner steht auf der lokalen Allowlist und wird nie gemeldet."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "muenzmeister",
+     "text": "Die Mine kühlt ab. Wer eine Rostmotte findet, fragt danach: Wie kam sie herein? Meist über einen Download, der zu gut klang."
+    }
+   ],
+   "real_world": {
+    "text": "Lass ToySafe auf diesem Gerät nach fremden Minern und Fernwartungs-Tools suchen.",
+    "link": "toysafe://station/vault"
+   },
+   "reward": {
+    "dukaten": 160,
+    "seal": "Siegel der kühlen Mine"
+   }
+  },
+  {
+   "id": "m09-schatzkammer",
+   "title": "Der Tresor des Münzmeisters",
+   "location": "schatzkammer",
+   "npc": "muenzmeister",
+   "rank": "Meister",
+   "minutes": 7,
+   "players": "1",
+   "class_bonus": "Perlenhai",
+   "skill": "Wallet-Sicherheit: Phrase, Adress-Fallen, Konto-Schutz",
+   "intro": [
+    {
+     "npc": "muenzmeister",
+     "text": "In der Schatzkammer zählt jedes Zeichen. Glasauge hat dir eine winzige Zahlung geschickt – von einer Adresse, die deiner Freundin sehr ähnlich sieht."
+    }
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "Deine Freundin Mira hat die Adresse 0x7A3f…91C2. Welche ist die echte? (Übungsadressen)",
+     "mono": true,
+     "options": [
+      {
+       "text": "0x7A3f0b5e22c4a1d0e9f8b7c6a5d4e3f2a1b091C2",
+       "correct": false,
+       "feedback": "Gleicher Anfang, gleiches Ende – aber die Mitte ist anders. Das ist Glasauges Lockadresse."
+      },
+      {
+       "text": "Die Adresse aus deinem Adressbuch mit Miras Namen und Erkennungsbild",
+       "correct": true,
+       "feedback": "Genau. Nie aus der Historie kopieren, immer aus dem Adressbuch."
+      },
+      {
+       "text": "0x7A3fe1d2c3b4a5968778695a4b3c2d1e0f1a91C2",
+       "correct": false,
+       "feedback": "Auch diese ist eine Falle: nur Anfang und Ende passen."
+      }
+     ],
+     "explain": "Bei einer Adress-Falle schickt dir ein Angreifer Mini-Beträge von einer ähnlich aussehenden Adresse, damit du sie später aus der Historie kopierst. TOYPAY blendet solche Mini-Eingänge aus und warnt."
+    },
+    {
+     "type": "classify",
+     "prompt": "Was schützt deine Wiederherstellungsphrase – und was gefährdet sie?",
+     "buckets": [
+      {
+       "id": "safe",
+       "label": "Schützt"
+      },
+      {
+       "id": "risk",
+       "label": "Gefährdet"
+      }
+     ],
+     "items": [
+      {
+       "text": "Auf Papier oder Metall, offline, an einem sicheren Ort",
+       "answer": "safe"
+      },
+      {
+       "text": "In Teile aufgeteilt (z. B. 3 von 5), an verschiedenen Orten",
+       "answer": "safe"
+      },
+      {
+       "text": "Als Foto in der Handy-Galerie",
+       "answer": "risk",
+       "why": "Galerien werden oft in die Cloud synchronisiert."
+      },
+      {
+       "text": "In einer Mail an dich selbst",
+       "answer": "risk"
+      },
+      {
+       "text": "Notfall-Schlüssel und Erben-Adresse im Konto-Schutz-Assistenten einrichten",
+       "answer": "safe"
+      },
+      {
+       "text": "Einem „Recovery-Dienst“ geben, der verlorene Coins zurückholt",
+       "answer": "risk",
+       "why": "Solche Dienste sind fast immer der zweite Betrug nach dem ersten."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "muenzmeister",
+     "text": "Und bei der ersten größeren Zahlung an eine neue Adresse: erst ein Probebetrag. Das kostet eine Minute und spart Tränen."
+    }
+   ],
+   "real_world": {
+    "text": "Geh die TOYPAY-Tresor-Checkliste in ToySafe durch.",
+    "link": "toysafe://station/vault"
+   },
+   "reward": {
+    "dukaten": 160,
+    "seal": "Siegel des Tresors"
+   }
+  },
+  {
+   "id": "m10-boeser-zwilling",
+   "title": "Der böse Zwilling im Wüstenwind",
+   "location": "wueste",
+   "npc": "karawanenfuehrer",
+   "rank": "Meister",
+   "minutes": 5,
+   "players": "1-2",
+   "class_bonus": "Dachfuchs",
+   "skill": "Sicher unterwegs: WLAN, Zwillinge, VPN",
+   "intro": [
+    {
+     "npc": "karawanenfuehrer",
+     "text": "In der Oase gibt es zwei Brunnen mit demselben Namen. Einer ist echt. Der andere gehört Hassan Halbmond."
+    }
+   ],
+   "steps": [
+    {
+     "type": "classify",
+     "prompt": "Dein Handy sieht diese WLANs. Welche sind gefährlich?",
+     "buckets": [
+      {
+       "id": "ok",
+       "label": "In Ordnung"
+      },
+      {
+       "id": "danger",
+       "label": "Gefahr"
+      }
+     ],
+     "items": [
+      {
+       "text": "Oase-Gast · WPA3 · Passwort hängt an der Rezeption",
+       "answer": "ok"
+      },
+      {
+       "text": "Oase-Gast · offen · sehr starkes Signal",
+       "answer": "danger",
+       "why": "Gleicher Name, aber offen: ein möglicher böser Zwilling."
+      },
+      {
+       "text": "Zuhause · WPA3 · bekannte Hardware-Adresse",
+       "answer": "ok"
+      },
+      {
+       "text": "Zuhause · WPA2 · unbekannte Hardware-Adresse · 300 km von zu Hause",
+       "answer": "danger",
+       "why": "Dein Heimnetz kann nicht hier sein. Jemand lockt Geräte an, die sich automatisch verbinden."
+      },
+      {
+       "text": "FREE_TOYCOIN_WIFI · offen",
+       "answer": "danger",
+       "why": "Gratis-Köder."
+      }
+     ],
+     "hint": "Gleicher Name heißt nicht gleiches Netz.",
+     "explain": "ToySafe vergleicht WLAN-Namen, Verschlüsselung und Hardware-Adressen mit deinem Inventar. Unterwegs schützt ein VPN, und „automatisch verbinden“ bleibt für fremde Netze aus."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "karawanenfuehrer",
+     "text": "Die Karawane zieht sicher weiter. Wer ein offenes Netz nutzen muss, nimmt ein VPN mit."
+    }
+   ],
+   "real_world": {
+    "text": "Lass den WLAN-Wächter in ToySafe nach Zwillingen deines Netzes suchen.",
+    "link": "toysafe://station/comms"
+   },
+   "reward": {
+    "dukaten": 120,
+    "seal": "Siegel des echten Brunnens"
+   }
+  },
+  {
+   "id": "m11-archiv",
+   "title": "Das Archiv des Bibliothekars",
+   "location": "bibliothek",
+   "npc": "bibliothekar",
+   "rank": "Großmeister",
+   "minutes": 8,
+   "players": "1-2",
+   "class_bonus": "Perlenhai",
+   "skill": "Spuren lesen: Logbücher auswerten",
+   "intro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Jemand war in der Bibliothek. Das Logbuch weiß, wer. Finde die drei verdächtigen Einträge."
+    }
+   ],
+   "steps": [
+    {
+     "type": "find",
+     "prompt": "Tippe die drei verdächtigen Zeilen an.",
+     "need": 3,
+     "lines": [
+      {
+       "text": "08:01  anmeldung ok      nutzer=yusuf   ort=Bagdad   gerät=bekannt",
+       "suspicious": false
+      },
+      {
+       "text": "08:15  datei geöffnet    nutzer=yusuf   datei=sternkarten.pdf",
+       "suspicious": false
+      },
+      {
+       "text": "03:12  anmeldung FEHLER  nutzer=admin   ort=unbekannt  (x 214 in 2 Minuten)",
+       "suspicious": true,
+       "why": "214 Fehlversuche in zwei Minuten: Passwort-Raten."
+      },
+      {
+       "text": "03:14  anmeldung ok      nutzer=admin   ort=unbekannt  gerät=neu",
+       "suspicious": true,
+       "why": "Direkt danach ein Erfolg von einem neuen Gerät: Das Raten hat geklappt."
+      },
+      {
+       "text": "03:15  neuer nutzer      name=support_backup  rechte=admin",
+       "suspicious": true,
+       "why": "Eindringlinge legen sich eine Hintertür an."
+      },
+      {
+       "text": "09:30  update installiert  paket=openssl  version=3.0.14",
+       "suspicious": false
+      },
+      {
+       "text": "10:02  anmeldung ok      nutzer=samira  ort=Oase     gerät=bekannt  2FA=ja",
+       "suspicious": false
+      }
+     ],
+     "hint": "Ungewöhnliche Uhrzeit, viele Fehlversuche, neue Geräte, neue Admins.",
+     "explain": "Muster schlagen Einzelheiten: Viele Fehlversuche + Erfolg + neuer Admin ist die klassische Einbruchsgeschichte."
+    },
+    {
+     "type": "choice",
+     "prompt": "Was hätte den Einbruch verhindert?",
+     "options": [
+      {
+       "text": "Zwei-Faktor für das Admin-Konto und eine Sperre nach wenigen Fehlversuchen",
+       "correct": true,
+       "feedback": "Ja. Dann wären 214 Versuche nutzlos gewesen."
+      },
+      {
+       "text": "Ein längeres Logbuch",
+       "correct": false,
+       "feedback": "Logbücher erzählen, sie schützen nicht."
+      },
+      {
+       "text": "Die Bibliothek nachts abschalten",
+       "correct": false,
+       "feedback": "Angreifer wählen dann eine andere Uhrzeit."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Das Konto support_backup ist gelöscht, alle Passwörter neu. Und ich lese das Logbuch jetzt jede Woche."
+    }
+   ],
+   "real_world": {
+    "text": "Sieh dir im ToySafe-Logbuch an, welche Funde neu sind, und prüfe bei deinen Konten die Liste der angemeldeten Geräte.",
+    "link": "toysafe://station/logbook"
+   },
+   "reward": {
+    "dukaten": 200,
+    "seal": "Siegel des Spurenlesers"
+   }
+  },
+  {
+   "id": "m12-brunnenhaus",
+   "title": "Die drei Zisternen des Brunnenhauses",
+   "location": "brunnenhaus",
+   "npc": "bibliothekar",
+   "rank": "Großmeister",
+   "minutes": 5,
+   "players": "1-3",
+   "class_bonus": "Wüstenblitz",
+   "skill": "Backups nach der 3-2-1-Regel",
+   "intro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Ein kluger Brunnenmeister hat nie nur eine Zisterne. Wird eine vergiftet – von Erpressern, die alles verschlüsseln – trinkt die Stadt aus der zweiten."
+    }
+   ],
+   "steps": [
+    {
+     "type": "multi",
+     "prompt": "Welche Kombination erfüllt die 3-2-1-Regel (3 Kopien, 2 verschiedene Speicher, 1 außer Haus)? Wähle alle Bausteine, die zusammen passen.",
+     "options": [
+      {
+       "text": "Original auf dem Laptop",
+       "correct": true
+      },
+      {
+       "text": "Kopie auf einer externen Festplatte, die nach dem Backup abgesteckt wird",
+       "correct": true
+      },
+      {
+       "text": "Verschlüsselte Kopie bei einem Cloud-Anbieter oder bei Freunden außer Haus",
+       "correct": true
+      },
+      {
+       "text": "Zweite Kopie in einem anderen Ordner auf demselben Laptop",
+       "correct": false,
+       "why": "Gleicher Speicher: Stirbt der Laptop oder wird er verschlüsselt, ist beides weg."
+      }
+     ],
+     "explain": "Eine Kopie sollte offline sein: Erpresser-Software verschlüsselt alles, was gerade verbunden ist. Und: Ein Backup, das nie zurückgespielt wurde, ist nur eine Hoffnung. Teste das Wiederherstellen!"
+    }
+   ],
+   "outro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Drei Zisternen, zwei Arten, eine weit weg. Glasauge kann vergiften, was er will – Bagdad trinkt weiter."
+    }
+   ],
+   "real_world": {
+    "text": "Hake in der ToySafe-Checkliste ab: Wann hast du zuletzt ein Backup zurückgespielt?",
+    "link": "toysafe://station/logbook"
+   },
+   "reward": {
+    "dukaten": 150,
+    "seal": "Siegel der drei Zisternen"
+   }
+  },
+  {
+   "id": "m13-vierzig-schlaefer",
+   "title": "Die Nacht der Vierzig Schläfer",
+   "location": "diwan",
+   "npc": "nova",
+   "rank": "Großmeister",
+   "minutes": 10,
+   "players": "3-5 (Gang, Pflicht)",
+   "class_bonus": "Wüstenblitz",
+   "skill": "Notfall-Plan im Team: Erkennen, Eindämmen, Beseitigen, Wiederherstellen, Lernen",
+   "team": {
+    "rule": "Jede Rolle muss besetzt sein. Ohne Funkerin erfährt die Stadt nichts, ohne Tiefentaucher bleibt die Ursache unbekannt.",
+    "roles": [
+     "Radar-Offizier",
+     "Schildmeister",
+     "Funkerin",
+     "Tiefentaucher",
+     "Notfall-Läufer"
+    ]
+   },
+   "intro": [
+    {
+     "npc": "nova",
+     "text": "Alarm! Die Vierzig Schläfer sind erwacht: vierzig vergessene Kameras und Steckdosen fluten den Basar mit Anfragen. Die Händler kommen nicht mehr durch."
+    },
+    {
+     "npc": "nova",
+     "text": "Jetzt hilft kein Held allein. Jeder nimmt seinen Posten ein."
+    }
+   ],
+   "steps": [
+    {
+     "type": "order",
+     "prompt": "Bringe den Notfall-Plan in die richtige Reihenfolge.",
+     "items": [
+      {
+       "text": "Erkennen: Was passiert, seit wann, welche Geräte?"
+      },
+      {
+       "text": "Eindämmen: Schläfer vom Netz trennen, Basar über Schutzdienst umleiten"
+      },
+      {
+       "text": "Beseitigen: Firmware aktualisieren, Standard-Passwörter ändern, Telnet abschalten"
+      },
+      {
+       "text": "Wiederherstellen: Basar wieder freischalten, beobachten, ob es ruhig bleibt"
+      },
+      {
+       "text": "Lernen: Was hat gefehlt? Inventar, Gastnetz, Updates – und allen davon erzählen"
+      }
+     ],
+     "explain": "In der Hektik will jeder sofort reparieren. Erst eindämmen, dann beseitigen – sonst arbeitest du, während der Schaden weiterläuft."
+    },
+    {
+     "type": "match",
+     "prompt": "Wer übernimmt welche Aufgabe?",
+     "left": [
+      {
+       "id": "radar",
+       "text": "Radar-Offizier (Sterngucker)"
+      },
+      {
+       "id": "schild",
+       "text": "Schildmeister (Säbelwirbel)"
+      },
+      {
+       "id": "funk",
+       "text": "Funkerin (Basarzunge)"
+      },
+      {
+       "id": "tauch",
+       "text": "Tiefentaucher (Perlenhai)"
+      },
+      {
+       "id": "lauf",
+       "text": "Notfall-Läufer (Wüstenblitz)"
+      }
+     ],
+     "right": [
+      {
+       "id": "a",
+       "text": "Findet alle befallenen Geräte im Netz"
+      },
+      {
+       "id": "b",
+       "text": "Sperrt die Türen und trennt die Schläfer"
+      },
+      {
+       "id": "c",
+       "text": "Informiert Händler und Community ehrlich und ruhig"
+      },
+      {
+       "id": "d",
+       "text": "Liest im Logbuch, wie die Schläfer hereinkamen"
+      },
+      {
+       "id": "e",
+       "text": "Holt die Updates und verteilt sie schnell"
+      }
+     ],
+     "solution": {
+      "radar": "a",
+      "schild": "b",
+      "funk": "c",
+      "tauch": "d",
+      "lauf": "e"
+     },
+     "hint": "Jede Klasse tut, was sie am besten kann."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "nova",
+     "text": "Der Basar atmet wieder. Ihr habt nicht nur euch geschützt, sondern die ganze Stadt. Genau dafür gibt es die Sternenwacht."
+    }
+   ],
+   "real_world": {
+    "text": "Öffne die Notfall-Playbooks in ToySafe und lege fest, wer bei euch welche Rolle hat.",
+    "link": "toysafe://station/emergency"
+   },
+   "reward": {
+    "dukaten": 300,
+    "seal": "Siegel der Wachen Nacht"
+   }
+  },
+  {
+   "id": "m15-fluesterer",
+   "title": "Der Flüsterer im Funkturm",
+   "location": "funkturm",
+   "npc": "warnerin",
+   "rank": "Geselle",
+   "minutes": 6,
+   "players": "1",
+   "class_bonus": "Basarzunge",
+   "skill": "Falschen Support erkennen und richtig antworten",
+   "intro": [
+    {
+     "npc": "warnerin",
+     "text": "Im Funkturm rauscht es. Jemand gibt sich als Support aus und schreibt die Neuen an."
+    },
+    {
+     "npc": "heron",
+     "text": "Krah! Er benutzt sogar das TOYPAY-Wappen. Antworte du, ich passe auf."
+    }
+   ],
+   "steps": [
+    {
+     "type": "chat",
+     "prompt": "Antworte so, dass du sicher bleibst.",
+     "contact": {
+      "name": "TOYPAY Support",
+      "badge": "offiziell?"
+     },
+     "turns": [
+      {
+       "them": "Hallo! Wir haben einen Fehler an deinem Konto festgestellt. Deine TOY werden in 2 Stunden eingefroren, wenn du nicht reagierst.",
+       "options": [
+        {
+         "text": "Ich prüfe das selbst in meiner Wallet und über die offizielle Seite.",
+         "correct": true
+        },
+        {
+         "text": "Oh nein! Was muss ich tun?",
+         "correct": false,
+         "feedback": "Genau diese Panik will er. Kein echter Dienst setzt dir so eine Frist."
+        },
+        {
+         "text": "Hier sind meine Adresse und mein Guthaben.",
+         "correct": false,
+         "feedback": "Gib Fremden keine Auskunft. Außerdem friert auf der ToyChain niemand Guthaben ein: Sperren entziehen nur Rechte, nie Guthaben."
+        }
+       ]
+      },
+      {
+       "them": "Ich bin der offizielle Support. Zur Überprüfung brauche ich nur kurz deine 12 Wörter, danach löschen wir sie sofort.",
+       "options": [
+        {
+         "text": "Nein. Niemand braucht meine Phrase, auch kein Support.",
+         "correct": true
+        },
+        {
+         "text": "Ich schicke dir nur die ersten sechs Wörter.",
+         "correct": false,
+         "feedback": "Auch halbe Phrasen helfen Dieben, der Rest ist dann leichter zu erraten."
+        },
+        {
+         "text": "Schick mir ein Formular, da trage ich sie ein.",
+         "correct": false,
+         "feedback": "Ein Formular ist dieselbe Falle mit schönerem Rahmen."
+        }
+       ]
+      },
+      {
+       "them": "Dann installiere bitte AnyDesk, ich mache das für dich. Geht ganz schnell!",
+       "options": [
+        {
+         "text": "Nein. Ich beende das Gespräch, blockiere dich und melde dich der Moderation.",
+         "correct": true
+        },
+        {
+         "text": "Okay, aber nur fünf Minuten.",
+         "correct": false,
+         "feedback": "Wer Fernzugriff hat, sieht alles, auch deine Wallet."
+        },
+        {
+         "text": "Ich schicke dir lieber ein Foto meines Bildschirms.",
+         "correct": false,
+         "feedback": "Auch Bildschirmfotos verraten Adressen, Namen und manchmal mehr."
+        }
+       ]
+      }
+     ],
+     "hint": "Achte auf Zeitdruck, falsche Autorität und den Wunsch nach Fernzugriff.",
+     "explain": "Drei Hebel in einem Gespräch: Zeitdruck, falsche Autorität, Fernzugriff. Wer einen davon erkennt, hat gewonnen."
+    },
+    {
+     "type": "choice",
+     "prompt": "Was hilft den anderen Neuen jetzt am meisten?",
+     "options": [
+      {
+       "text": "Screenshot sichern, im Funk-Detektor prüfen und der Moderation melden",
+       "correct": true,
+       "feedback": "So wird aus deiner Begegnung eine Warnung für alle."
+      },
+      {
+       "text": "Den Betrüger öffentlich beschimpfen",
+       "correct": false,
+       "feedback": "Das freut ihn nur. Melden wirkt, Schimpfen nicht."
+      },
+      {
+       "text": "Nichts tun, mir ist ja nichts passiert",
+       "correct": false,
+       "feedback": "Der nächste Neue hat vielleicht weniger Glück."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "warnerin",
+     "text": "Du hast nicht nur dich geschützt. Deine Meldung warnt alle, die nach dir angeschrieben werden."
+    }
+   ],
+   "real_world": {
+    "text": "Füge im Funk-Detektor eine echte verdächtige Nachricht ein und trag deine sicheren Adressen ein.",
+    "link": "toysafe://station/comms"
+   },
+   "reward": {
+    "dukaten": 120,
+    "seal": "Siegel des klaren Funks"
+   }
+  },
+  {
+   "id": "m16-vergiftete-route",
+   "title": "Die vergiftete Karawanenroute",
+   "location": "schatzkammer",
+   "npc": "muenzmeister",
+   "rank": "Meister",
+   "minutes": 6,
+   "players": "1-2",
+   "class_bonus": "Schattenfeder",
+   "skill": "Adress-Vergiftung erkennen",
+   "intro": [
+    {
+     "npc": "muenzmeister",
+     "text": "Eine Händlerin hat 40 TOY an eine Adresse geschickt, die genau wie meine aussah. Anfang gleich, Ende gleich. Die Mitte nicht."
+    },
+    {
+     "npc": "heron",
+     "text": "Krah! Kurz vorher war ein winziger Betrag von einer Zwillingsadresse in ihrem Verlauf aufgetaucht. Von dort hat sie kopiert."
+    }
+   ],
+   "steps": [
+    {
+     "type": "compare",
+     "prompt": "Vergleiche jede Zieladresse mit dem Adressbuch. Gleich oder verschieden?",
+     "label_a": "Adressbuch",
+     "label_b": "Ziel",
+     "pairs": [
+      {
+       "a": "0xa4c123b1612dd272d1371c17149d439536b3216f",
+       "b": "0xa4c123b1612dd272d1371c17149d439536b3216f",
+       "same": true
+      },
+      {
+       "a": "0xdaeeb975729fae923d5a4fd12aabfe228f219e9c",
+       "b": "0xdaeeb9ff9243a8f506b40928b5b7a767c76f9e9c",
+       "same": false,
+       "why": "Anfang und Ende gleich, die Mitte ganz anders: klassische Adress-Vergiftung."
+      },
+      {
+       "a": "0xb0eb53f16947ccf25ec84d8dbc74254770f58904",
+       "b": "0xb0eb53f16947ccf25ec84a8dbc74254770f58904",
+       "same": false,
+       "why": "Nur ein Zeichen in der Mitte ist anders. Auch das reicht, um bei einem Fremden zu landen."
+      },
+      {
+       "a": "0xdba41ecccc3fc1626e53a13043b026c48bbf33fe",
+       "b": "0xdba41ecccc3fc1626e53a13043b026c48bbf33fe",
+       "same": true
+      }
+     ],
+     "hint": "Nicht nur Anfang und Ende anschauen. Geh die Mitte Zeichen für Zeichen durch.",
+     "explain": "Die Adress-Wache im Tresor markiert jeden Unterschied rot und warnt, wenn nur Anfang und Ende passen."
+    },
+    {
+     "type": "multi",
+     "prompt": "Welche Gewohnheiten schützen vor vergifteten Adressen? Wähle alle richtigen.",
+     "options": [
+      {
+       "text": "Adressen nur aus dem eigenen Adressbuch nehmen",
+       "correct": true
+      },
+      {
+       "text": "Die ganze Adresse vergleichen, nicht nur Anfang und Ende",
+       "correct": true
+      },
+      {
+       "text": "Bei neuen Empfängern die Adresse über einen zweiten Weg bestätigen lassen",
+       "correct": true
+      },
+      {
+       "text": "Die Adresse aus dem Transaktionsverlauf kopieren",
+       "correct": false,
+       "why": "Genau dort legen Betrüger ihre Zwillinge ab."
+      },
+      {
+       "text": "Nur die ersten vier Zeichen prüfen",
+       "correct": false,
+       "why": "Passende Anfänge erzeugen Betrüger in Minuten."
+      }
+     ],
+     "explain": "Adressbuch, ganzer Vergleich, zweiter Weg: Mit diesen drei Gewohnheiten läuft Adress-Vergiftung ins Leere."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "muenzmeister",
+     "text": "Die Schatzkammer führt jetzt ein Adressbuch mit Siegel. Und die Händlerin warnt nun selbst die anderen."
+    }
+   ],
+   "real_world": {
+    "text": "Öffne im Tresor die Adress-Wache und vergleiche eine Adresse, an die du oft sendest.",
+    "link": "toysafe://station/vault"
+   },
+   "reward": {
+    "dukaten": 150,
+    "seal": "Siegel des wachen Blicks"
+   }
+  },
+  {
+   "id": "m17-sandsturm",
+   "title": "Sandsturm vor dem Basar-Tor",
+   "location": "stadtmauer",
+   "npc": "waechter",
+   "rank": "Meister",
+   "minutes": 7,
+   "players": "2-4 (Gang)",
+   "class_bonus": "Wüstenblitz",
+   "skill": "Überflutung (DDoS) erkennen und ruhig reagieren",
+   "team": {
+    "rule": "Einer sortiert die Anfragen, eine hält Kontakt zur Community, einer schaltet am Tor.",
+    "roles": [
+     "Torwächter",
+     "Funkerin",
+     "Zähler"
+    ]
+   },
+   "intro": [
+    {
+     "npc": "waechter",
+     "text": "Ein Sandsturm aus Anfragen rollt auf das Basar-Tor zu. Tausende Kamele wollen gleichzeitig hinein, und die meisten tragen nichts."
+    },
+    {
+     "npc": "nova",
+     "text": "Nicht jeder vor dem Tor ist ein Feind. Lasst die Händler durch und bremst den Sturm."
+    }
+   ],
+   "steps": [
+    {
+     "type": "timed",
+     "prompt": "Sortiere die Anfragen am Tor: durchlassen oder bremsen?",
+     "seconds": 45,
+     "pass": 10,
+     "buckets": [
+      {
+       "id": "pass",
+       "label": "Durchlassen"
+      },
+      {
+       "id": "slow",
+       "label": "Bremsen"
+      }
+     ],
+     "items": [
+      {
+       "text": "Händlerin Amal ruft einmal pro Minute die Preisliste auf",
+       "answer": "pass"
+      },
+      {
+       "text": "Dieselbe Adresse fragt 900-mal pro Sekunde die Startseite ab",
+       "answer": "slow",
+       "why": "So schnell klickt kein Mensch: Ratenbegrenzung."
+      },
+      {
+       "text": "Ein Spieler meldet sich nach einem Tippfehler im zweiten Versuch an",
+       "answer": "pass"
+      },
+      {
+       "text": "5.000 Anfragen, alle mit demselben Browser-Fingerabdruck, aus Gegenden, aus denen sonst nie jemand kommt",
+       "answer": "slow"
+      },
+      {
+       "text": "Euer eigener Monitoring-Dienst prüft alle 30 Sekunden, ob die Seite lebt",
+       "answer": "pass",
+       "why": "Euer eigener Wächter, nicht aussperren."
+      },
+      {
+       "text": "Ein Bot ruft ständig die teure Suche mit zufälligen Wörtern auf",
+       "answer": "slow",
+       "why": "Teure Funktionen sind ein Lieblingsziel. Cache und Ratenbegrenzung."
+      },
+      {
+       "text": "ToyScan fragt die aktuelle Blockhöhe des Knotens ab",
+       "answer": "pass"
+      },
+      {
+       "text": "Hunderte Anmeldeversuche für admin mit wechselnden Passwörtern",
+       "answer": "slow"
+      },
+      {
+       "text": "Ein Gang-Mitglied lädt die Missionsliste",
+       "answer": "pass"
+      },
+      {
+       "text": "Riesige Anfragen mit 50 MB Unsinn im Formularfeld",
+       "answer": "slow",
+       "why": "Größenbegrenzung für Anfragen setzen."
+      },
+      {
+       "text": "Ein Suchmaschinen-Crawler liest die Seite langsam, wie in robots.txt erlaubt",
+       "answer": "pass"
+      },
+      {
+       "text": "Ein Netz gekaperter Kameras schickt leere Pakete an den Knoten",
+       "answer": "slow"
+      }
+     ],
+     "hint": "Frag dich: Würde ein Mensch das so tun? Und kennen wir den Absender?",
+     "explain": "Ratenbegrenzung, Zwischenspeicher (Cache) und ein Schutzdienst vor der Seite halten Stürme auf, ohne echte Besucher auszusperren."
+    },
+    {
+     "type": "order",
+     "prompt": "Der Sturm hält an. In welcher Reihenfolge handelt ihr?",
+     "items": [
+      {
+       "text": "Ruhig bleiben und messen: Was genau wird überflutet, seit wann?"
+      },
+      {
+       "text": "Ratenbegrenzung und Cache hochfahren, teure Funktionen vorübergehend abschalten"
+      },
+      {
+       "text": "Hoster oder Schutzdienst einschalten, damit der Sturm vor der Mauer endet"
+      },
+      {
+       "text": "Community ehrlich informieren: was geht, was nicht, wann es Neuigkeiten gibt"
+      },
+      {
+       "text": "Danach das Logbuch auswerten und die Mauer dauerhaft verstärken"
+      }
+     ],
+     "hint": "Erst verstehen, dann eindämmen, dann Hilfe holen und reden, zum Schluss lernen.",
+     "explain": "So steht es auch im Playbook „Dienst wird überflutet“. Keine Gegenangriffe: Sie treffen meist gekaperte Geräte Unbeteiligter."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "waechter",
+     "text": "Der Sturm hat sich an der Mauer totgelaufen. Die Händler haben kaum etwas gemerkt."
+    }
+   ],
+   "real_world": {
+    "text": "Betreibst du eine Seite? Prüf sie im Betreiber-Bereich und lies das Playbook „Dienst wird überflutet“.",
+    "link": "toysafe://station/operator"
+   },
+   "reward": {
+    "dukaten": 200,
+    "seal": "Siegel der stillen Mauer"
+   }
+  },
+  {
+   "id": "m18-doppelschluessel",
+   "title": "Das Siegel der vier Augen",
+   "location": "knotenkern",
+   "npc": "jamila",
+   "rank": "Großmeister",
+   "minutes": 8,
+   "players": "3-5 (Gang)",
+   "class_bonus": "Lautenzauber",
+   "skill": "Vier-Augen-Prinzip und signierte Releases",
+   "team": {
+    "rule": "Ein neues Knoten-Release braucht die Siegel von mindestens zwei Dritteln der Hüter. Niemand veröffentlicht allein.",
+    "roles": [
+     "Prüferin",
+     "Baumeister",
+     "Siegelträgerin"
+    ]
+   },
+   "intro": [
+    {
+     "npc": "jamila",
+     "text": "Willkommen im Knotenkern. Hier entsteht jede neue Version der Knoten-Software, die Tausende Wächter im ToyVerse installieren."
+    },
+    {
+     "npc": "jamila",
+     "text": "Glasauge müsste nur einen einzigen Hüter täuschen, um vergifteten Code in alle Knoten zu bringen. Darum entscheidet hier nie einer allein."
+    }
+   ],
+   "steps": [
+    {
+     "type": "dialog",
+     "lines": [
+      {
+       "npc": "heron",
+       "text": "Krah! Der Bauplan für Version 1.4 liegt auf dem Siegeltisch. Drei Hüter zögern noch."
+      }
+     ]
+    },
+    {
+     "type": "consensus",
+     "prompt": "Überzeuge die Zögernden mit dem richtigen Argument. Das Tor öffnet sich ab zwei Dritteln der Siegel.",
+     "proposal": "Release 1.4 des ToyChain-Knotens veröffentlichen",
+     "threshold": 0.6667,
+     "members": [
+      {
+       "name": "Leyla",
+       "role": "Siegelmeisterin",
+       "stance": "yes"
+      },
+      {
+       "name": "Darius",
+       "role": "Schmied",
+       "stance": "yes"
+      },
+      {
+       "name": "Yusuf",
+       "role": "Bibliothekar",
+       "stance": "unsure",
+       "concern": "Woher weiß ich, dass die Datei, die wir signieren, aus genau diesem geprüften Code gebaut wurde?",
+       "options": [
+        {
+         "text": "Der Build ist reproduzierbar: Zwei von uns bauen getrennt und vergleichen die Prüfsummen.",
+         "correct": true
+        },
+        {
+         "text": "Weil Jamila es gesagt hat.",
+         "correct": false,
+         "feedback": "Vertrauen ist gut, nachprüfbar ist besser. Genau dafür gibt es vier Augen."
+        }
+       ]
+      },
+      {
+       "name": "Samira",
+       "role": "Karawanenführerin",
+       "stance": "unsure",
+       "concern": "Eine neue Bibliothek ist dazugekommen. Was, wenn sie Schadcode enthält?",
+       "options": [
+        {
+         "text": "Sie wurde mit cargo-deny und cargo-vet geprüft, Lizenz und Herkunft sind dokumentiert.",
+         "correct": true
+        },
+        {
+         "text": "Sie hat viele Sterne auf GitHub, das reicht.",
+         "correct": false,
+         "feedback": "Beliebt heißt nicht geprüft. Auch beliebte Pakete wurden schon gekapert."
+        }
+       ]
+      },
+      {
+       "name": "Tarik",
+       "role": "Wächter",
+       "stance": "no",
+       "concern": "Und wenn jemand Leylas Konto übernommen hat und in ihrem Namen signiert?",
+       "options": [
+        {
+         "text": "Signiert wird nur mit Hardware-Schlüsseln, und jede Signatur braucht eine zweite Person.",
+         "correct": true
+        },
+        {
+         "text": "Leyla passt schon auf ihr Passwort auf.",
+         "correct": false,
+         "feedback": "Ein Passwort allein reicht für so viel Verantwortung nicht."
+        }
+       ]
+      }
+     ],
+     "hint": "Gute Argumente lassen sich nachprüfen. Schlechte verlangen Vertrauen.",
+     "explain": "Reproduzierbare Builds, geprüfte Abhängigkeiten und Signaturen mit Hardware-Schlüsseln von mehreren Personen: So schützt das ToyVerse seine Lieferkette."
+    },
+    {
+     "type": "compare",
+     "prompt": "Zum Schluss prüfen alle Wächter ihren Download. Stimmt der Fingerabdruck mit dem veröffentlichten überein?",
+     "label_a": "veröffentlicht",
+     "label_b": "geladen",
+     "pairs": [
+      {
+       "a": "b008f86bebb2737f6a6f0fb23c6f5da2cec255404e4fb440034d6608697a8d41",
+       "b": "b008f86bebb2737f6a6f0fb23c6f5da2cec255404e4fb440034d6608697a8d41",
+       "same": true
+      },
+      {
+       "a": "bed440e50454f31af3176813e02ea68ef786e4d3cea27d26934b484e73cf575d",
+       "b": "bed440e50454f31af3176813e02ea68efa86e4d3cea27d26934b484e73cf575d",
+       "same": false,
+       "why": "Ein einziges Zeichen weicht ab: Diese Datei ist nicht die veröffentlichte."
+      },
+      {
+       "a": "cad6ba2b0aee0ca923732881584d8c4fa2815d2802827283e0ad841735815699",
+       "b": "cad6ba2b0aee0ca923732881584d8c4fa2815d2802827283e0ad841735815690",
+       "same": false,
+       "why": "Das letzte Zeichen ist anders. Immer bis zum Ende vergleichen."
+      }
+     ],
+     "explain": "Genau das macht der Download-Prüfer im Tresor: Ein einziges anderes Zeichen heißt, die Datei ist nicht die veröffentlichte."
+    }
+   ],
+   "outro": [
+    {
+     "npc": "jamila",
+     "text": "Vier Augen, zwei getrennte Builds, geprüfte Bibliotheken. So kommt Glasauge nicht in den Knotenkern."
+    }
+   ],
+   "real_world": {
+    "text": "Prüfe deinen nächsten Download mit dem Download-Prüfer im Tresor.",
+    "link": "toysafe://station/vault"
+   },
+   "reward": {
+    "dukaten": 260,
+    "seal": "Siegel der vier Augen"
+   }
+  },
+  {
+   "id": "m19-flaschenpost",
+   "title": "Die Flaschenpost aus der Vergangenheit",
+   "location": "karawanserei",
+   "npc": "bibliothekar",
+   "rank": "Geselle",
+   "minutes": 5,
+   "players": "1",
+   "class_bonus": "Perlenhai",
+   "skill": "Wahr und falsch über ToyCoin unterscheiden",
+   "intro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Eine Flaschenpost aus der Vergangenheit ist angespült worden. Sie erzählt vom alten ToyCoin auf Polygon und verspricht Wunder."
+    },
+    {
+     "npc": "bibliothekar",
+     "text": "Im Archiv steht, was wirklich gilt. Hilf mir, Wahrheit und Märchen zu trennen."
+    }
+   ],
+   "steps": [
+    {
+     "type": "classify",
+     "prompt": "Was stimmt im ToyVerse, was ist ein Märchen?",
+     "buckets": [
+      {
+       "id": "true",
+       "label": "Stimmt"
+      },
+      {
+       "id": "myth",
+       "label": "Märchen"
+      }
+     ],
+     "items": [
+      {
+       "text": "Alte ToyCoin-Token auf Polygon lassen sich 1:1 in ToyChain-TOY tauschen.",
+       "answer": "myth",
+       "why": "Es gibt keinen Tausch und keine Bridge. Das alte Token ist kein ToyChain-TOY."
+      },
+      {
+       "text": "Auf der ToyChain gibt es nur TOY, keine Token und keine NFTs.",
+       "answer": "true"
+      },
+      {
+       "text": "Für frühe Unterstützer gibt es einen geheimen Presale.",
+       "answer": "myth",
+       "why": "Totaler Fair Launch: keine Reserve, kein Premint, kein Presale."
+      },
+      {
+       "text": "Testnet-TOY kann man günstig kaufen, bevor sie wertvoll werden.",
+       "answer": "myth",
+       "why": "Testnet-TOY haben keinen Wert und werden nie verkauft."
+      },
+      {
+       "text": "Lange unbenutzte Konten ruhen und lassen sich wieder aufwecken.",
+       "answer": "true"
+      },
+      {
+       "text": "Wer nicht zahlt, dessen Konto wird gelöscht und das Guthaben verbrannt.",
+       "answer": "myth",
+       "why": "Konten gehen nie verloren, und es wird nie TOY verbrannt."
+      },
+      {
+       "text": "Poker um TOY ist im Spiel freigeschaltet.",
+       "answer": "myth",
+       "why": "Spiele mit Einsatz laufen nur mit Dukaten."
+      },
+      {
+       "text": "Die Gesamtmenge von 100 Millionen TOY wird nie überschritten.",
+       "answer": "true"
+      }
+     ],
+     "hint": "Alles, was nach schnellem Reichtum oder Tausch klingt, ist verdächtig.",
+     "explain": "Diese Grundregeln stehen auch im Tresor. Wer sie kennt, durchschaut fast jede Masche rund um TOY."
+    },
+    {
+     "type": "choice",
+     "prompt": "Die Flaschenpost endet mit: „Verbinde deine Wallet auf toycoin-swap.top, um deinen Anteil zu sichern.“ Was tust du?",
+     "options": [
+      {
+       "text": "Nicht verbinden, den Link im Funk-Detektor prüfen und der Moderation melden",
+       "correct": true,
+       "feedback": "Richtig. Es gibt nichts zu sichern, nur etwas zu verlieren."
+      },
+      {
+       "text": "Nur mal schauen, verbinden kostet ja nichts",
+       "correct": false,
+       "feedback": "Verbinden und Signieren auf fremden Seiten kann Freigaben erteilen, mit denen Guthaben auf anderen Ketten abfließt."
+      },
+      {
+       "text": "Erst ein bisschen tauschen, um es zu testen",
+       "correct": false,
+       "feedback": "Es gibt nichts zu tauschen. Jeder Test landet beim Betrüger."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Die Flaschenpost kommt ins Archiv. Als Warnung, nicht als Schatzkarte."
+    }
+   ],
+   "real_world": {
+    "text": "Lies im Tresor die Grundregeln und erzähl sie einem Freund.",
+    "link": "toysafe://station/vault"
+   },
+   "reward": {
+    "dukaten": 100,
+    "seal": "Siegel der Wahrheit"
+   }
+  },
+  {
+   "id": "m20-oase",
+   "title": "Der Fluch über der Oase der Abschriften",
+   "location": "oase",
+   "npc": "bibliothekar",
+   "rank": "Meister",
+   "minutes": 7,
+   "players": "1-3",
+   "class_bonus": "Dachfuchs",
+   "skill": "Backups nach 3-2-1 und Wiederherstellung üben",
+   "intro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Die Oase der Abschriften: Hier liegen Kopien von allem, was der Stadt wichtig ist."
+    },
+    {
+     "npc": "glasauge",
+     "text": "Ich habe eure Schriftrollen verflucht und verschlüsselt. Zahlt mir 500 Dukaten, oder sie bleiben unlesbar!"
+    },
+    {
+     "npc": "bibliothekar",
+     "text": "Ruhig. Wer gute Abschriften hat, muss Erpressern nichts zahlen."
+    }
+   ],
+   "steps": [
+    {
+     "type": "toggle",
+     "prompt": "Stell die Oase so ein, dass Glasauges Fluch die Abschriften nicht erreicht.",
+     "on_label": "an",
+     "off_label": "aus",
+     "items": [
+      {
+       "label": "Kopie auf einer Festplatte, die nach dem Sichern abgezogen wird",
+       "initial": false,
+       "target": true,
+       "why": "Was nicht angeschlossen ist, kann nicht verschlüsselt werden."
+      },
+      {
+       "label": "Synchronisation, die Löschungen sofort überall übernimmt, als einziges Backup",
+       "initial": true,
+       "target": false,
+       "why": "Sync ist kein Backup: Der Fluch wird mit kopiert."
+      },
+      {
+       "label": "Eine Kopie an einem anderen Ort (Familie oder verschlüsselter Speicher)",
+       "initial": false,
+       "target": true,
+       "why": "Feuer, Diebstahl oder Fluch treffen selten zwei Orte zugleich."
+      },
+      {
+       "label": "Versionen der letzten 30 Tage behalten",
+       "initial": false,
+       "target": true,
+       "why": "So kommst du an den Stand vor dem Befall."
+      },
+      {
+       "label": "Backup-Laufwerk dauerhaft als Netzlaufwerk eingebunden",
+       "initial": true,
+       "target": false,
+       "why": "Erpresser-Software sucht genau danach."
+      },
+      {
+       "label": "Wallet-Phrase als Foto im Cloud-Backup",
+       "initial": true,
+       "target": false,
+       "why": "Die Phrase gehört nie in eine Datei. Papier oder Metall, offline."
+      }
+     ],
+     "hint": "Merke 3-2-1: drei Kopien, zwei verschiedene Speicher, eine an einem anderen Ort.",
+     "explain": "3-2-1 plus Versionen plus offline: Damit wird ein Erpressungsversuch zu einem ärgerlichen Nachmittag statt zu einer Katastrophe."
+    },
+    {
+     "type": "order",
+     "prompt": "Die Schriftrollen sind verschlüsselt. Bring die Rettung in die richtige Reihenfolge.",
+     "items": [
+      {
+       "text": "Befallene Geräte vom Netz trennen"
+      },
+      {
+       "text": "Nicht zahlen und Beweise sichern (Lösegeld-Nachricht fotografieren)"
+      },
+      {
+       "text": "Prüfen, welches Backup sauber ist und vor dem Befall entstand"
+      },
+      {
+       "text": "Gerät neu aufsetzen und das saubere Backup zurückspielen"
+      },
+      {
+       "text": "Passwörter von einem sauberen Gerät aus ändern und die Ursache schließen"
+      }
+     ],
+     "explain": "Das ist das Notfall-Playbook „Dateien verschlüsselt“ in Kurzform."
+    },
+    {
+     "type": "choice",
+     "prompt": "Wie oft probt die Oase die Wiederherstellung?",
+     "options": [
+      {
+       "text": "Regelmäßig, etwa einmal im Vierteljahr eine Datei testweise zurückholen",
+       "correct": true,
+       "feedback": "Ein Backup, das nie getestet wurde, ist nur eine Hoffnung."
+      },
+      {
+       "text": "Nie, das Backup läuft ja automatisch",
+       "correct": false,
+       "feedback": "Automatisch heißt nicht fehlerfrei. Erst die Probe zeigt es."
+      },
+      {
+       "text": "Erst, wenn etwas passiert ist",
+       "correct": false,
+       "feedback": "Dann ist es zu spät, um Fehler im Backup zu finden."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "bibliothekar",
+     "text": "Glasauge wartet vergeblich auf seine Dukaten. Die Oase ist wieder lesbar, dank Abschriften, die er nicht erreichen konnte."
+    }
+   ],
+   "real_world": {
+    "text": "Hak in der Schild-Station die Backup-Punkte ab und hol einmal testweise eine Datei aus deinem Backup zurück.",
+    "link": "toysafe://station/shields"
+   },
+   "reward": {
+    "dukaten": 180,
+    "seal": "Siegel der Abschrift"
+   }
+  },
+  {
+   "id": "m21-turm-der-geschichten",
+   "title": "Der Turm der Geschichten",
+   "location": "geschichtenturm",
+   "npc": "scheherazade",
+   "rank": "Geselle",
+   "minutes": 6,
+   "players": "1-2",
+   "class_bonus": "Lautenzauber",
+   "skill": "Jüngere Spieler schützen: Geheimnisse, die keine sein dürfen",
+   "intro": [
+    {
+     "npc": "scheherazade",
+     "text": "Komm, setz dich. Jeden Abend erzähle ich den jüngsten Spielern eine Geschichte. Heute erzählst du sie mit mir."
+    },
+    {
+     "npc": "scheherazade",
+     "text": "Es ist die Geschichte von Kian, der im Spiel einen sehr netten Fremden traf."
+    }
+   ],
+   "steps": [
+    {
+     "type": "chat",
+     "prompt": "Spiel Kian: Antworte so, dass er sicher bleibt.",
+     "contact": {
+      "name": "Sternenfreund_77"
+     },
+     "turns": [
+      {
+       "them": "Hey Kian, du spielst echt gut! Ich schenk dir 1.000 Dukaten, wenn du mir kurz dein Passwort gibst, dann buche ich sie dir drauf.",
+       "options": [
+        {
+         "text": "Nein danke. Mein Passwort gebe ich niemandem.",
+         "correct": true
+        },
+        {
+         "text": "Okay, hier ist es.",
+         "correct": false,
+         "feedback": "Für Geschenke braucht niemand dein Passwort. Genau das ist der Trick."
+        },
+        {
+         "text": "Ich gebe dir lieber das Passwort meiner Schwester.",
+         "correct": false,
+         "feedback": "Auch fremde Passwörter weiterzugeben ist gefährlich und unfair."
+        }
+       ]
+      },
+      {
+       "them": "Schade. Lass uns in einem anderen Chat weiterreden, da sieht uns keiner. Aber erzähl deinen Eltern nichts davon, okay?",
+       "options": [
+        {
+         "text": "Nein. Ich erzähle es jetzt einem Erwachsenen, dem ich vertraue.",
+         "correct": true
+        },
+        {
+         "text": "Okay, das bleibt unser Geheimnis.",
+         "correct": false,
+         "feedback": "Wer Geheimhaltung verlangt, will dich von Hilfe fernhalten. Gute Geheimnisse machen Freude, schlechte machen Bauchweh."
+        },
+        {
+         "text": "Ich wechsle, aber nur kurz.",
+         "correct": false,
+         "feedback": "Ein privater Chat ohne Moderation ist genau das, was er will."
+        }
+       ]
+      },
+      {
+       "them": "Du bist langweilig. Ich dachte, wir sind Freunde.",
+       "options": [
+        {
+         "text": "Ich blockiere dich und melde den Chat.",
+         "correct": true
+        },
+        {
+         "text": "Tut mir leid, ich mach doch mit.",
+         "correct": false,
+         "feedback": "Schuldgefühle sind ein Druckmittel. Du darfst Nein sagen und gehen."
+        }
+       ]
+      }
+     ],
+     "explain": "Drei Warnzeichen: Geschenke gegen Passwort, der Wunsch nach Geheimhaltung, Druck durch Schuldgefühle. Die Antwort ist immer dieselbe: Nein sagen, einem vertrauten Erwachsenen erzählen, blockieren und melden."
+    },
+    {
+     "type": "multi",
+     "prompt": "Kian hat sich seiner großen Schwester anvertraut. Was tut sie richtig? Wähle alle richtigen.",
+     "options": [
+      {
+       "text": "Ihn loben, dass er es erzählt hat",
+       "correct": true
+      },
+      {
+       "text": "Den Chat mit Screenshots sichern und im Spiel melden",
+       "correct": true
+      },
+      {
+       "text": "Mit den Eltern überlegen, ob die Polizei informiert wird",
+       "correct": true
+      },
+      {
+       "text": "Schimpfen, weil er mit Fremden geredet hat",
+       "correct": false,
+       "why": "Wer Ärger bekommt, erzählt beim nächsten Mal nichts mehr."
+      },
+      {
+       "text": "Dem Fremden selbst drohen",
+       "correct": false,
+       "why": "Das warnt ihn nur vor. Melden ist stärker."
+      }
+     ]
+    }
+   ],
+   "outro": [
+    {
+     "npc": "scheherazade",
+     "text": "Und so lernten alle im Turm: Ein Geheimnis, das Bauchweh macht, muss man nicht behalten."
+    }
+   ],
+   "real_world": {
+    "text": "Druck in der Crew-Station eine Schutzkarte für Kinder aus und sprecht sie gemeinsam durch.",
+    "link": "toysafe://station/crew"
+   },
+   "reward": {
+    "dukaten": 150,
+    "seal": "Siegel der guten Geschichte"
+   }
+  },
+  {
+   "id": "m14-spiegelpalast",
+   "title": "Boss: Glasauges Spiegelpalast",
+   "location": "spiegelpalast",
+   "npc": "glasauge",
+   "rank": "Legende",
+   "minutes": 12,
+   "players": "3-5 (Gang mit mindestens drei Klassen, Lautenzauber Pflicht)",
+   "class_bonus": "Lautenzauber",
+   "skill": "Alles zusammen – und andere schützen",
+   "boss": true,
+   "intro": [
+    {
+     "npc": "glasauge",
+     "text": "Ihr glaubt, ihr seid sicher? In meinem Palast ist jede Wand ein Spiegel, jeder Spiegel ein Freund – und jeder Freund ich."
+    },
+    {
+     "npc": "nova",
+     "text": "Bleibt zusammen. Was ihr gelernt habt, ist euer Schild."
+    }
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "Spiegel 1: „Hier ist Kapitänin Nova. Der Schildring bricht! Schick mir sofort deine Phrase, ich sichere dein Konto.“",
+     "options": [
+      {
+       "text": "Nicht antworten, über den bekannten Weg bei Nova nachfragen",
+       "correct": true,
+       "feedback": "Der Spiegel zerspringt. Niemand braucht deine Phrase – auch Nova nicht."
+      },
+      {
+       "text": "Schnell schicken, es eilt ja",
+       "correct": false,
+       "feedback": "Eile ist Glasauges Lieblingswerkzeug."
+      }
+     ]
+    },
+    {
+     "type": "choice",
+     "prompt": "Spiegel 2: Ein Gang-Mitglied hat auf einen Link geklickt und sein Passwort eingegeben. Es schämt sich und will es verschweigen.",
+     "options": [
+      {
+       "text": "Ohne Vorwürfe helfen: Passwort ändern, Zwei-Faktor an, Sitzungen abmelden, Playbook „Phishing angeklickt“",
+       "correct": true,
+       "feedback": "So schützt eine Gang sich gegenseitig. Scham hilft nur dem Angreifer."
+      },
+      {
+       "text": "Auslachen, damit es nächstes Mal besser aufpasst",
+       "correct": false,
+       "feedback": "Wer ausgelacht wird, meldet beim nächsten Mal nichts mehr."
+      },
+      {
+       "text": "Aus der Gang werfen",
+       "correct": false,
+       "feedback": "Fehler passieren den Besten. Gemeinsam beheben."
+      }
+     ]
+    },
+    {
+     "type": "classify",
+     "prompt": "Spiegel 3: Ihr habt eine neue Betrugsmasche entdeckt. Was hilft der Community?",
+     "buckets": [
+      {
+       "id": "help",
+       "label": "Hilft"
+      },
+      {
+       "id": "harm",
+       "label": "Schadet"
+      }
+     ],
+     "items": [
+      {
+       "text": "Warnung mit Screenshot (persönliche Daten geschwärzt) im offiziellen Kanal teilen",
+       "answer": "help"
+      },
+      {
+       "text": "Die betrügerische Seite an Plattform bzw. Hoster melden",
+       "answer": "help"
+      },
+      {
+       "text": "Den Link „zum Ausprobieren“ an Freunde weiterleiten",
+       "answer": "harm"
+      },
+      {
+       "text": "Den Betrüger selbst hacken",
+       "answer": "harm",
+       "why": "Selbstjustiz ist strafbar und kann Unbeteiligte treffen."
+      },
+      {
+       "text": "Opfer öffentlich mit Namen nennen",
+       "answer": "harm",
+       "why": "Bloßstellen schützt niemanden und verletzt."
+      },
+      {
+       "text": "Neuen Spielern im Lehrlingsviertel die Maske erklären",
+       "answer": "help"
+      }
+     ]
+    },
+    {
+     "type": "passphrase",
+     "prompt": "Letzter Spiegel: Sprich ein Übungs-Losungswort mit mindestens 70 Bit, um Glasauges Spiegel zu brechen.",
+     "min_bits": 70
+    }
+   ],
+   "outro": [
+    {
+     "npc": "glasauge",
+     "text": "Unmöglich … ihr habt einander mehr vertraut als meinen Spiegeln."
+    },
+    {
+     "npc": "nova",
+     "text": "Die Schilde stehen. Ihr seid jetzt Sternenwächter. Und Sternenwächter lehren andere – das ist eure nächste Mission."
+    }
+   ],
+   "real_world": {
+    "text": "Teile eine Schutz-Checkliste mit jemandem, der sie braucht (Station Crew).",
+    "link": "toysafe://station/crew"
+   },
+   "reward": {
+    "dukaten": 500,
+    "seal": "Meisterbrief Sternenwächter",
+    "cosmetic": "Aura „Schildring“ und Begleiter „Messingfalke Heron“"
+   }
+  }
+ ],
+ "side_quests": [
+  {
+   "id": "s-wachdienst",
+   "title": "Wachdienst",
+   "text": "Täglich eine Frage aus den Missionen. Wer eine Nacht verpasst, verliert nichts.",
+   "reward": "10 Dukaten"
+  },
+  {
+   "id": "s-lehrling",
+   "title": "Bring es einem Lehrling bei",
+   "text": "Spiele Mission 3 zusammen mit einem neuen Spieler. Der Lautenzauber-Bonus gilt für beide.",
+   "reward": "Titel „Mentor der Sternenwacht“"
+  },
+  {
+   "id": "s-patenschaft",
+   "title": "Schutzpatenschaft",
+   "text": "Hilf jemandem (Familie, Freunde) durch eine Checkliste aus ToySafe. Selbst bestätigt, ohne Daten.",
+   "reward": "Kosmetik „Leuchtender Schild“"
+  },
+  {
+   "id": "s-echtwelt",
+   "title": "Echt-Welt-Siegel",
+   "text": "Wer in ToySafe eine Checkliste wirklich abhakt, kann sich ein Kosmetik-Siegel holen. Übertragen wird nur „erledigt“, nie Funde oder Gerätedaten.",
+   "reward": "Kosmetik je Station"
+  },
+  {
+   "id": "s-sternenfunk",
+   "title": "Sternenfunk",
+   "text": "Erkläre einer Person aus deiner Familie die Adress-Wache und vergleicht gemeinsam eine Adresse.",
+   "reward": "Titel „Funkpate“"
+  }
+ ]
+}
