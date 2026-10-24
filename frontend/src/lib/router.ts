@@ -45,3 +45,12 @@ export function routeFromLink(link: string): Route | null {
   const r = alias[m[1]] ?? m[1];
   return (ROUTES as string[]).includes(r) ? (r as Route) : null;
 }
+
+/** Embedded (e.g. as a hosted demo), browsers block printing and downloads, so those buttons hide. */
+export const isFramed = (() => {
+  try {
+    return window.self !== window.top;
+  } catch {
+    return true;
+  }
+})();

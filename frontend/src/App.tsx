@@ -30,8 +30,16 @@ function useDocumentPrefs() {
   const lang = useStore((s) => s.settings.lang);
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === "auto") delete root.dataset.theme;
-    else root.dataset.theme = theme;
+    // Only remove a theme we set ourselves, so a host page's own choice stays intact.
+    if (theme === "auto") {
+      if (root.dataset.themeOwner === "toysafe") {
+        delete root.dataset.theme;
+        delete root.dataset.themeOwner;
+      }
+    } else {
+      root.dataset.theme = theme;
+      root.dataset.themeOwner = "toysafe";
+    }
     const reduced = motion === "reduced" || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     root.dataset.motion = reduced ? "reduced" : "full";
     root.lang = lang;

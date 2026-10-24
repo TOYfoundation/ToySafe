@@ -2,7 +2,7 @@ import playbooks from "@content/playbooks.json";
 import { Icon } from "../components/Icon";
 import { Meter, Panel, StationHeader } from "../components/ui";
 import { useT } from "../i18n";
-import { go } from "../lib/router";
+import { go, isFramed } from "../lib/router";
 import { setState, toggleMap, useStore } from "../lib/store";
 
 interface Step {
@@ -96,10 +96,12 @@ export function Emergency({ arg }: { arg: string | null }) {
         ))}
       </ol>
       <div className="btn-row">
-        <button type="button" className="btn btn-ghost btn-sm" onClick={() => window.print()}>
-          <Icon name="print" size={16} />
-          {t("common.print")}
-        </button>
+        {!isFramed && (
+          <button type="button" className="btn btn-ghost btn-sm" onClick={() => window.print()}>
+            <Icon name="print" size={16} />
+            {t("common.print")}
+          </button>
+        )}
         <button
           type="button"
           className="btn btn-ghost btn-sm"

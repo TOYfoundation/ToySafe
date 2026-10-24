@@ -4,6 +4,7 @@ import { ScanConsole } from "../components/ScanConsole";
 import { DemoNote, Empty, Panel, StationHeader } from "../components/ui";
 import { useT } from "../i18n";
 import { api } from "../lib/api";
+import { isFramed } from "../lib/router";
 import { useEngine } from "../lib/engine";
 import { getState } from "../lib/store";
 import type { ScanJob } from "../lib/types";
@@ -54,7 +55,7 @@ export function Logbook() {
           {job ? (
             <>
               <ScanConsole job={job} />
-              {job.status === "done" && (
+              {job.status === "done" && !isFramed && (
                 <div className="btn-row">
                   <button type="button" className="btn btn-primary btn-sm" onClick={() => download(`toysafe-${job.id}.md`, toMarkdown(job, t))}>
                     <Icon name="file" size={16} />

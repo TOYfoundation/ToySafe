@@ -3,7 +3,7 @@ import { ALL_LISTS, Checklist, listProgress } from "../components/Checklist";
 import { Icon } from "../components/Icon";
 import { Panel, StationHeader } from "../components/ui";
 import { useT } from "../i18n";
-import { go } from "../lib/router";
+import { go, isFramed } from "../lib/router";
 import { useStore } from "../lib/store";
 
 const AUDIENCES = ["kids", "elders", "gang", "mods"] as const;
@@ -34,10 +34,12 @@ export function Crew() {
             <span>{t("crew.name")}</span>
             <input value={name} onChange={(e) => setName(e.target.value)} placeholder={t("crew.namePh")} />
           </label>
-          <button type="button" className="btn btn-primary btn-sm" onClick={() => window.print()}>
-            <Icon name="print" size={16} />
-            {t("crew.printCard")}
-          </button>
+          {!isFramed && (
+            <button type="button" className="btn btn-primary btn-sm" onClick={() => window.print()}>
+              <Icon name="print" size={16} />
+              {t("crew.printCard")}
+            </button>
+          )}
         </Panel>
 
         <article className="safety-card print-area" aria-label={t("crew.card")}>
