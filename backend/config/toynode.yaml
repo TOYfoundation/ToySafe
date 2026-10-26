@@ -1,5 +1,5 @@
 # Einstellungen für die Knoten-Wache (toynode_audit.py).
-# Der ToyChain-Knoten ist noch im Bau (Meilensteine M6/M7 in Safehaigit/toycoin).
+# Der ToyChain-Knoten ist noch im Bau (Meilensteine M6/M7 in TOYfoundation/toycoin).
 # Sobald Ports und Pfade feststehen, hier anpassen. Werte unten sind Platzhalter.
 
 process_names:
