@@ -1,6 +1,6 @@
 """Knoten-Wache: Härtung eines eigenen ToyChain-Knotens bzw. Validators.
 
-Grundlage sind die Vorgaben aus Safehaigit/toycoin (Spezifikation und
+Grundlage sind die Vorgaben aus TOYfoundation/toycoin (Spezifikation und
 TOYPAY-Wallet-Doku):
 - Validator-Schlüssel (BLS) sind getrennt vom Geld-Schlüssel. Der
   Geld-Schlüssel gehört nicht auf das Validator-Gerät.

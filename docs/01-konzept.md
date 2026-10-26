@@ -4,7 +4,7 @@ Stand 24.10.2026, Version 0.8.0 · Teil des ToyVerse (ToyChain, TOY, TOYPAY, Toy
 
 ToySafe ist das Sicherheits-Cockpit des ToyVerse. Es schützt die Menschen, die das ToyVerse nutzen und betreiben, und macht sie fähig, sich selbst, ihre Geräte und Netze und andere zu schützen. Dieselben Inhalte gibt es als spielbares Level 7 „Die Sternenwacht“ in TOYQUEST (`02-level7-sternenwacht.md`).
 
-Fachlich maßgeblich für alles rund um TOY bleiben `docs/01-spezifikation.md` und `docs/02-entscheidungen.md` im Repository `Safehaigit/toycoin`. Bei Widersprüchen gilt toycoin.
+Fachlich maßgeblich für alles rund um TOY bleiben `docs/01-spezifikation.md` und `docs/02-entscheidungen.md` im Repository `TOYfoundation/toycoin`. Bei Widersprüchen gilt toycoin.
 
 ## 1. Ziel in drei Sätzen
 

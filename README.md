@@ -4,7 +4,7 @@
 
 ![Brücke mit Schildring](docs/bilder/bruecke.png)
 
-ToySafe gehört zum ToyVerse (ToyChain, TOY, TOYPAY, ToyScan, ToyCash, TOYQUEST, ToyPost). Fachlich maßgeblich für TOY sind die Dokumente in [Safehaigit/toycoin](https://github.com/Safehaigit/toycoin).
+ToySafe gehört zum ToyVerse (ToyChain, TOY, TOYPAY, ToyScan, ToyCash, TOYQUEST, ToyPost). Fachlich maßgeblich für TOY sind die Dokumente in [TOYfoundation/toycoin](https://github.com/TOYfoundation/toycoin).
 
 ## Was ToySafe verspricht
 
